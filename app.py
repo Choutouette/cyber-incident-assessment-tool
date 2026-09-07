@@ -5,8 +5,8 @@ import streamlit as st
 # -----------------------------
 # Load scenario data
 # -----------------------------
-def load_scenarios():
-    with open("data/scenarios.json", "r", encoding="utf-8") as file:
+def load_scenario():
+    with open("data/scenarios/phishing.json", "r", encoding="utf-8") as file:
         return json.load(file)
 
 
@@ -23,7 +23,7 @@ st.set_page_config(
 # -----------------------------
 # Load data
 # -----------------------------
-scenarios = load_scenarios()
+scenario = load_scenario()
 
 
 # -----------------------------
@@ -59,15 +59,15 @@ st.info(
 )
 
 
-# -----------------------------
-# Scenario selection
-# -----------------------------
-scenario_id = st.selectbox(
-    "Choose an incident scenario",
-    list(scenarios.keys())
-)
+# # -----------------------------
+# # Scenario selection
+# # -----------------------------
+# scenario_id = st.selectbox(
+#     "Choose an incident scenario",
+#     list(scenario.keys())
+# )
 
-scenario = scenarios[scenario_id]
+# scenario = scenario[scenario_id]
 
 
 if not st.session_state.started:
