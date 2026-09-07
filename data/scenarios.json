@@ -1,0 +1,239 @@
+{
+  "phishing_account_compromise": {
+    "title": "Phishing & Business Account Compromise",
+    "description": "A simulated cyber incident involving a suspicious email that eventually leads to unauthorized access to a business account.",
+    "questions": [
+      {
+        "id": 1,
+        "stage": "red_team",
+        "category": "Attack Recognition",
+        "story": "You manage a small online business in Ghana. One morning, an employee receives an email claiming to be from a service provider the business normally uses.",
+        "question": "What should the employee do first?",
+        "options": [
+          "Click the link immediately to check the message",
+          "Verify the message and sender before taking any action",
+          "Forward the email to customers",
+          "Reply to the sender with the employee's password"
+        ],
+        "correct_answer": 1,
+        "feedback": "The safest first step is to verify the message and sender before interacting with suspicious content."
+      },
+      {
+        "id": 2,
+        "stage": "red_team",
+        "category": "Attack Recognition",
+        "story": "The employee notices that the sender's address is slightly different from the address normally used by the service provider.",
+        "question": "What does this difference suggest?",
+        "options": [
+          "The email is automatically safe",
+          "The difference is irrelevant",
+          "The message may be impersonating a legitimate organization",
+          "The employee should send their password"
+        ],
+        "correct_answer": 2,
+        "feedback": "A suspicious sender address can be an important warning sign of impersonation or phishing."
+      },
+      {
+        "id": 3,
+        "stage": "blue_team",
+        "category": "Prevention & Detection",
+        "story": "The email contains a link asking the employee to sign in to the business account.",
+        "question": "What is the safest way to verify the link?",
+        "options": [
+          "Click it and enter the password",
+          "Use a known legitimate website or trusted contact to verify the request",
+          "Send the link to customers",
+          "Ignore all security warnings"
+        ],
+        "correct_answer": 1,
+        "feedback": "Suspicious links should be verified through a trusted channel rather than used directly."
+      },
+      {
+        "id": 4,
+        "stage": "blue_team",
+        "category": "Prevention & Detection",
+        "story": "The employee reports that they accidentally entered their business account credentials after following the suspicious request.",
+        "question": "What should happen next?",
+        "options": [
+          "Do nothing unless money is lost",
+          "Immediately report the suspected credential compromise",
+          "Delete all business records",
+          "Share the credentials with another employee"
+        ],
+        "correct_answer": 1,
+        "feedback": "A suspected credential compromise should be reported immediately so protective and investigative actions can begin."
+      },
+      {
+        "id": 5,
+        "stage": "blue_team",
+        "category": "Prevention & Detection",
+        "story": "The business receives an alert showing that the account was accessed from an unfamiliar device.",
+        "question": "What does this alert potentially indicate?",
+        "options": [
+          "Normal business activity",
+          "Possible unauthorized access",
+          "The account has been permanently deleted",
+          "The computer is automatically protected"
+        ],
+        "correct_answer": 1,
+        "feedback": "An unfamiliar device or login location can be an indicator of possible unauthorized access."
+      },
+      {
+        "id": 6,
+        "stage": "incident_response",
+        "category": "Incident Response",
+        "story": "The attacker appears to have accessed the business account and started sending fraudulent messages to customers.",
+        "question": "What should be the immediate priority?",
+        "options": [
+          "Continue using the compromised account normally",
+          "Contain the incident and prevent further unauthorized activity",
+          "Delete every record related to the incident",
+          "Ignore the customers"
+        ],
+        "correct_answer": 1,
+        "feedback": "The immediate priority is containment and preventing further unauthorized activity."
+      },
+      {
+        "id": 7,
+        "stage": "incident_response",
+        "category": "Incident Response",
+        "story": "The business has contained the suspicious activity. The team now needs to understand what happened.",
+        "question": "What should the team preserve before investigating further?",
+        "options": [
+          "Relevant incident records and available logs",
+          "Only unrelated documents",
+          "Nothing",
+          "The employee's personal photographs"
+        ],
+        "correct_answer": 0,
+        "feedback": "Relevant records and logs may be important for understanding the incident and supporting the investigation."
+      },
+      {
+        "id": 8,
+        "stage": "forensics",
+        "category": "Digital Forensics",
+        "story": "The investigation begins. The team has access to simulated account login records.",
+        "evidence": [
+          "09:12 — Successful login — Office computer",
+          "09:18 — Suspicious email received",
+          "09:27 — Successful login — Unfamiliar device",
+          "09:35 — Customer messages sent from business account"
+        ],
+        "question": "Which record would be especially important to investigate?",
+        "options": [
+          "The unfamiliar-device login",
+          "The office computer login only",
+          "None of the records",
+          "The business name"
+        ],
+        "correct_answer": 0,
+        "feedback": "The unfamiliar-device login is an important forensic lead because it may indicate unauthorized access."
+      },
+      {
+        "id": 9,
+        "stage": "forensics",
+        "category": "Digital Forensics",
+        "story": "The team has preserved the simulated login records and suspicious email.",
+        "question": "Why should the evidence be preserved carefully?",
+        "options": [
+          "To maintain its reliability for investigation",
+          "To make the incident look worse",
+          "To hide the incident",
+          "Because evidence never changes"
+        ],
+        "correct_answer": 0,
+        "feedback": "Evidence should be preserved carefully so its integrity and reliability can be maintained during investigation."
+      },
+      {
+        "id": 10,
+        "stage": "forensics",
+        "category": "Digital Forensics",
+        "story": "The investigator compares the timestamps from the suspicious email, login records and customer messages.",
+        "question": "What can timestamps help the investigator establish?",
+        "options": [
+          "A possible sequence of events",
+          "The employee's salary",
+          "The company's annual profit",
+          "The customer's personal opinions"
+        ],
+        "correct_answer": 0,
+        "feedback": "Timestamps can help reconstruct the sequence and timing of events."
+      },
+      {
+        "id": 11,
+        "stage": "forensics",
+        "category": "Digital Forensics",
+        "story": "The evidence shows that the suspicious email appeared before the unfamiliar login, followed by fraudulent customer messages.",
+        "question": "What does this sequence potentially suggest?",
+        "options": [
+          "The events may be connected",
+          "There is definitely no incident",
+          "The records are automatically false",
+          "The customer caused the incident"
+        ],
+        "correct_answer": 0,
+        "feedback": "The sequence may indicate a relationship between the phishing event, unauthorized access and subsequent activity."
+      },
+      {
+        "id": 12,
+        "stage": "incident_response",
+        "category": "Incident Response",
+        "story": "The investigation indicates that some customers may have received fraudulent messages from the compromised account.",
+        "question": "What should the business consider doing?",
+        "options": [
+          "Warn potentially affected customers",
+          "Hide the incident from everyone",
+          "Send customers the compromised password",
+          "Continue sending messages from the account"
+        ],
+        "correct_answer": 0,
+        "feedback": "Affected customers should be considered in the response so they can avoid further harm."
+      },
+      {
+        "id": 13,
+        "stage": "blue_team",
+        "category": "Prevention & Detection",
+        "story": "The business wants to reduce the likelihood of a similar incident happening again.",
+        "question": "Which combination would provide stronger protection?",
+        "options": [
+          "Security awareness and stronger account protection",
+          "Sharing passwords between employees",
+          "Ignoring suspicious emails",
+          "Using the same password everywhere"
+        ],
+        "correct_answer": 0,
+        "feedback": "Security awareness and stronger account protection can reduce the likelihood and impact of similar incidents."
+      },
+      {
+        "id": 14,
+        "stage": "incident_response",
+        "category": "Incident Response",
+        "story": "The incident has been contained and investigated. The business now reviews what could have been done better.",
+        "question": "Why is a lessons-learned review useful?",
+        "options": [
+          "It can identify weaknesses and improve future preparedness",
+          "It guarantees that attacks will never happen",
+          "It removes the need for security controls",
+          "It deletes the evidence"
+        ],
+        "correct_answer": 0,
+        "feedback": "Lessons learned can help identify weaknesses and improve future prevention, detection and response."
+      },
+      {
+        "id": 15,
+        "stage": "forensics",
+        "category": "Digital Forensics",
+        "story": "The complete simulated incident has now been reviewed from attack recognition through investigation and response.",
+        "question": "Which approach best demonstrates forensic readiness?",
+        "options": [
+          "Having relevant evidence sources identified and procedures for preserving and investigating them",
+          "Deleting logs regularly",
+          "Avoiding documentation",
+          "Waiting until an incident occurs before thinking about evidence"
+        ],
+        "correct_answer": 0,
+        "feedback": "Forensic readiness involves knowing what evidence may be available and having processes for preserving and investigating it."
+      }
+    ]
+  }
+}
