@@ -1,0 +1,49 @@
+{
+  "owner": "Nana Osei Sarpong Bonsu",
+  "team": "Red Team",
+  "area": "Attack Recognition",
+  "questions": [
+    {
+      "id": 1,
+      "story": "You manage a small online business in Ghana. One morning, an employee receives an email claiming to be from a service provider the business normally uses.",
+      "question": "What should the employee do first?",
+      "options": [
+        "Click the link immediately to check the message",
+        "Verify the message and sender before taking any action",
+        "Forward the email to customers",
+        "Reply to the sender with the employee's password"
+      ],
+      "correct_answer": 1,
+      "feedback": "The safest first step is to verify the message and sender before interacting with suspicious content.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "The employee notices that the sender's address is slightly different from the address normally used by the service provider.",
+      "question": "What does this difference suggest?",
+      "options": [
+        "The email is automatically safe",
+        "The difference is irrelevant",
+        "The message may be impersonating a legitimate organization",
+        "The employee should send their password"
+      ],
+      "correct_answer": 2,
+      "feedback": "A suspicious sender address can be an important warning sign of impersonation or phishing.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "The email contains a link asking the employee to sign in to the business account.",
+      "question": "What is the safest way to verify the link?",
+      "options": [
+        "Click it and enter the password",
+        "Use a known legitimate website or trusted contact to verify the request",
+        "Send the link to customers",
+        "Ignore all security warnings"
+      ],
+      "correct_answer": 1,
+      "feedback": "Suspicious links should be verified through a trusted channel rather than used directly.",
+      "points": 1
+    }
+  ]
+}
