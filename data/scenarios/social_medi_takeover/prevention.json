@@ -1,63 +1,74 @@
 {
-  "owner": "Kenneth A. Atampugre",
+  "owner": "Kenneth",
   "team": "Blue Team",
   "area": "Prevention & Detection",
-  "questions": [
+  "scenarios": [
     {
-      "id": 1,
-      "story": "A business social media account relies on a single password shared across three marketing team members.",
-      "question": "What is the safest way to provide team access to a business social media account without compromising primary credentials?",
-      "options": [
-        "Storing the shared password in a central, unencrypted text file on a shared drive",
-        "Utilizing official platform team management hubs (e.g., Meta Business Manager) with role-based access control",
-        "Sending the login password via SMS whenever a teammate needs to log in",
-        "Writing the password on a sticky note attached to the main office computer"
-      ],
-      "correct_answer": 1,
-      "feedback": "Shared direct passwords eliminate individual accountability and prevent Multi-Factor Authentication from operating securely.",
-      "points": 1
-    },
-    {
-      "id": 2,
-      "story": "A fraudster posing as 'Platform Verification Support' contacts your business on WhatsApp, demanding the 6-digit SMS code sent to your phone.",
-      "question": "Which security principle protects against social engineering attempts targeting verification tokens?",
-      "options": [
-        "Strict enforcement of a zero-trust policy stating One-Time Passwords (OTPs) and verification codes are strictly confidential and never shared",
-        "Sharing the code only if the support agent provides an official-looking badge image",
-        "Reading the code out loud over the phone if the caller promises to restore account features",
-        "Posting the verification code in a public group chat"
-      ],
-      "correct_answer": 0,
-      "feedback": "Legitimate platforms and support teams will never ask users to verbally disclose or forward an SMS/app verification code.",
-      "points": 1
-    },
-    {
-      "id": 3,
-      "story": "You suspect an unknown device has gained access to your business account after followers report receiving scam links.",
-      "question": "What is the most direct method to verify intrusion and identify an unauthorized device's connection details?",
-      "options": [
-        "Changing the account profile picture to see if it changes back",
-        "Posting a public story asking if anyone is logged into the account",
-        "Auditing the 'Active Sessions / Where You're Logged In' security menu to review connected devices, locations, and session IDs",
-        "Deleting and reinstalling the social media mobile app"
-      ],
-      "correct_answer": 2,
-      "feedback": "Active session management gives complete visibility into active login tokens, enabling immediate manual termination of unrecognized devices.",
-      "points": 1
-    },
-    {
-      "id": 4,
-      "story": "An attacker silently alters primary recovery details on a business social media page to prevent the rightful owner from resetting the password.",
-      "question": "Which telemetry trigger alerts the primary owner to a high-risk administrative change?",
-      "options": [
-        "Immediate email and SMS alerts sent when primary contact details, recovery phone numbers, or linked email addresses are modified",
-        "Checking your bank account balance at the end of the week",
-        "Reviewing public engagement metrics on recent posts",
-        "Checking for browser extension updates"
-      ],
-      "correct_answer": 0,
-      "feedback": "High-security platforms send out-of-band alerts whenever core authentication settings change, giving owners a window to revert unauthorized actions.",
-      "points": 1
+      "id": "social_media_takeover",
+      "title": "Business Social Media Account Takeover",
+      "attacker_objective": "Gain control of a business social media account and use that control to impersonate the business and potentially deceive customers.",
+      "questions": [
+        {
+          "id": 1,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "2:16 PM — An Unexpected Security Alert\n\nYou manage your business's social media account. While preparing a normal business post, your phone displays a notification: “New login detected.”\n\nYou did not log in from a new device. A few minutes later, you notice that some account-security or recovery information has changed even though you did not change it.",
+          "question": "Which detection feature made it possible to notice the account issue almost immediately?",
+          "options": [
+            "Login/new-device notifications and account-security change alerts enabled on the platform.",
+            "Checking the account manually once a week.",
+            "Disabling notifications to avoid distraction while posting.",
+            "Waiting for a customer to mention that something seemed wrong."
+          ],
+          "correct_answer": 0,
+          "feedback": "Platform-level login and security-change alerts are what surfaced the compromise in near real time, before further damage occurred."
+        },
+        {
+          "id": 2,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "2:23 PM — The Account Starts Acting Strangely\n\nYou try to review the account. Before you can finish, you notice that a new message has been sent from the business account to several customers. One customer replies: “Why are you asking me to click this link?”\n\nYou did not send the message. You check the account again and find that the profile or recovery details are no longer exactly as you left them.",
+          "question": "What ongoing detection practice would help catch this kind of unauthorized activity sooner, before customers have to flag it?",
+          "options": [
+            "Monitoring outgoing account activity/sent messages, and reviewing customer replies or reports for signs of impersonation.",
+            "Assuming customers will always independently verify suspicious links themselves.",
+            "Disabling the ability to view sent messages to reduce clutter.",
+            "Waiting until the end of the month to review account activity."
+          ],
+          "correct_answer": 0,
+          "feedback": "Active monitoring of outbound activity, paired with a channel for customers to flag suspicious messages, shortens the time between compromise and discovery."
+        },
+        {
+          "id": 3,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "2:29 PM — The Attacker Reveals the Objective\n\nYou receive a WhatsApp message from someone claiming to be helping you recover the account. They say: “Your account has been compromised. I can secure it for you. Send me the login code you just received so I can cancel the attack.”\n\nAt the same time, you can still see unfamiliar activity on the business account. You now have to decide what the attacker is most likely trying to accomplish.",
+          "question": "Which preventive measure best stops this stage of the attack — the request for the authentication code — from succeeding?",
+          "options": [
+            "Multi-factor authentication combined with a strict policy of never sharing login/authentication codes with anyone, including people claiming to be support.",
+            "Sharing the code so the \"helper\" can secure the account more quickly.",
+            "Disabling two-factor authentication to simplify account recovery.",
+            "Assuming anyone who mentions a \"compromised account\" must be legitimate support staff."
+          ],
+          "correct_answer": 0,
+          "feedback": "MFA raises the bar for takeover, but that protection only holds if staff are trained never to disclose codes — the final barrier in this attack is a human decision, not a technical one."
+        },
+        {
+          "id": 4,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "2:40 PM — Reviewing the Gaps\n\nThe account showed an unfamiliar login, unexpected security changes, unauthorized messages to customers, and now a follow-up attempt to extract an authentication code.\n\nThe business wants to know what should have been in place beforehand, and what would catch this pattern faster if it happens again.",
+          "question": "Which combination of controls would best prevent and detect this type of account takeover going forward?",
+          "options": [
+            "MFA on all business social accounts, staff training on never sharing authentication codes, active login/activity alerting, and a documented account-recovery process that uses only official platform channels.",
+            "Sharing account passwords among all staff for convenience.",
+            "Removing MFA because it slows down posting.",
+            "Relying on unofficial \"recovery helpers\" who reach out through social media or messaging apps."
+          ],
+          "correct_answer": 0,
+          "feedback": "This combination prevents unauthorized access (MFA, no code-sharing), detects it quickly if it happens anyway (alerting), and ensures recovery goes through legitimate channels rather than exposing the account to further attack."
+        }
+      ]
     }
   ]
 }
