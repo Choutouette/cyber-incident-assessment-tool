@@ -1,0 +1,74 @@
+{
+  "owner": "Kenneth Atampugre",
+  "team": "Blue Team",
+  "area": "Prevention & Detection",
+  "scenarios": [
+    {
+      "id": "malicious_invoice",
+      "title": "Malicious Invoice / Document Attachment",
+      "attacker_objective": "Impersonate a regular supplier or shipping partner and use an unexpected invoice attachment plus urgency to persuade an employee to open a potentially malicious file, creating an opportunity for unauthorized access.",
+      "questions": [
+        {
+          "id": 1,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "8:43 AM — The Invoice Arrives\n\nYou are handling business emails when a message arrives from someone who appears to be your regular shipping partner.\n\nSubject: “OVERDUE INVOICE — FINAL WARNING”\n\nThe message says the invoice must be reviewed immediately to avoid disruption to your business. Normally, this supplier sends invoices as PDF files. This time, the attachment is: Invoice_Details.zip",
+          "question": "Which preventive control at the email gateway would most reduce risk before the employee ever has to decide whether to open the file?",
+          "options": [
+            "Automatically routing all invoices straight to the finance folder without inspection.",
+            "Email filtering/attachment sandboxing that flags or blocks unexpected archive file types and checks for sender-domain mismatches before delivery.",
+            "Turning off spam filters so no legitimate emails are missed.",
+            "Asking the employee to open the file in a separate browser tab."
+          ],
+          "correct_answer": 1,
+          "feedback": "A gateway-level control that inspects attachment types and sender authenticity (e.g., domain similarity, authentication checks) can intercept a suspicious ZIP file before it ever reaches an inbox."
+        },
+        {
+          "id": 2,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "8:51 AM — Something Doesn't Match\n\nYou contact the supplier using the phone number already stored in your business records. The supplier says: “We did not send that email. Our invoices are still being sent as PDFs.”\n\nYou return to the email. The sender name looks familiar, but the actual email address is slightly different from the supplier's normal address. You also notice that the message is pressuring you to open the attachment immediately.",
+          "question": "What detection practice institutionalizes this kind of check instead of relying on one employee happening to notice the mismatch?",
+          "options": [
+            "A policy of independently verifying unexpected or urgent attachments/invoices through a known contact method (a phone number already on file, not one from the email itself).",
+            "Trusting the display name shown in the inbox.",
+            "Assuming any message labeled \"final warning\" must be legitimate.",
+            "Discontinuing all email communication with suppliers."
+          ],
+          "correct_answer": 0,
+          "feedback": "An out-of-band verification step turns a one-off observation into a repeatable control that reliably detects impersonation, regardless of how convincing the email itself looks."
+        },
+        {
+          "id": 3,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "9:07 AM — The Employee Has Already Opened It\n\nYou discover that another employee saw the email before it was verified. They opened the attachment. A few minutes later, their device displays an unusual security warning and begins behaving differently from normal.\n\nThe employee says: “I only opened the invoice. I didn't download anything else.”\n\nYou now need to understand what the attacker was trying to achieve.",
+          "question": "Which detection tool made it possible to notice the unusual device activity quickly, right after the attachment was opened?",
+          "options": [
+            "Endpoint detection and response (EDR) or antivirus software generating a real-time security alert on the device.",
+            "Waiting for the employee to mention the device felt \"slow.\"",
+            "An annual IT audit.",
+            "Disabling security software to improve device performance."
+          ],
+          "correct_answer": 0,
+          "feedback": "Endpoint monitoring is what generated the unusual security warning. Without an EDR/antivirus solution watching device behavior, the compromise could persist unnoticed for much longer."
+        },
+        {
+          "id": 4,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "9:15 AM — Reviewing the Gaps\n\nThe supplier has confirmed it never sent the email, the sender address did not match, and the employee's device is now showing signs of compromise after the attachment was opened.\n\nThe business wants to understand what should have stopped this earlier, and what should catch it faster if it happens again.",
+          "question": "Which set of controls would best prevent and detect this type of attack going forward?",
+          "options": [
+            "Blocking or sandboxing risky attachment types by default, mandatory out-of-band verification for unexpected invoices, and endpoint monitoring with alerts for anomalous post-open activity.",
+            "Allowing all ZIP attachments on the reasoning that PDFs can also be malicious.",
+            "Removing antivirus software to speed up email delivery.",
+            "Relying only on the supplier to prevent impersonation of its own brand."
+          ],
+          "correct_answer": 0,
+          "feedback": "Combining email-layer prevention, a verification habit that catches impersonation, and endpoint-layer detection covers the attack at the delivery, decision, and execution stages rather than a single point of failure."
+        }
+      ]
+    }
+  ]
+}
