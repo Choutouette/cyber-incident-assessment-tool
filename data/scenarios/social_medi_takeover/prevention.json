@@ -1,0 +1,63 @@
+{
+  "owner": "Kenneth A. Atampugre",
+  "team": "Blue Team",
+  "area": "Prevention & Detection",
+  "questions": [
+    {
+      "id": 1,
+      "story": "A business social media account relies on a single password shared across three marketing team members.",
+      "question": "What is the safest way to provide team access to a business social media account without compromising primary credentials?",
+      "options": [
+        "Storing the shared password in a central, unencrypted text file on a shared drive",
+        "Utilizing official platform team management hubs (e.g., Meta Business Manager) with role-based access control",
+        "Sending the login password via SMS whenever a teammate needs to log in",
+        "Writing the password on a sticky note attached to the main office computer"
+      ],
+      "correct_answer": 1,
+      "feedback": "Shared direct passwords eliminate individual accountability and prevent Multi-Factor Authentication from operating securely.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "A fraudster posing as 'Platform Verification Support' contacts your business on WhatsApp, demanding the 6-digit SMS code sent to your phone.",
+      "question": "Which security principle protects against social engineering attempts targeting verification tokens?",
+      "options": [
+        "Strict enforcement of a zero-trust policy stating One-Time Passwords (OTPs) and verification codes are strictly confidential and never shared",
+        "Sharing the code only if the support agent provides an official-looking badge image",
+        "Reading the code out loud over the phone if the caller promises to restore account features",
+        "Posting the verification code in a public group chat"
+      ],
+      "correct_answer": 0,
+      "feedback": "Legitimate platforms and support teams will never ask users to verbally disclose or forward an SMS/app verification code.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "You suspect an unknown device has gained access to your business account after followers report receiving scam links.",
+      "question": "What is the most direct method to verify intrusion and identify an unauthorized device's connection details?",
+      "options": [
+        "Changing the account profile picture to see if it changes back",
+        "Posting a public story asking if anyone is logged into the account",
+        "Auditing the 'Active Sessions / Where You're Logged In' security menu to review connected devices, locations, and session IDs",
+        "Deleting and reinstalling the social media mobile app"
+      ],
+      "correct_answer": 2,
+      "feedback": "Active session management gives complete visibility into active login tokens, enabling immediate manual termination of unrecognized devices.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "An attacker silently alters primary recovery details on a business social media page to prevent the rightful owner from resetting the password.",
+      "question": "Which telemetry trigger alerts the primary owner to a high-risk administrative change?",
+      "options": [
+        "Immediate email and SMS alerts sent when primary contact details, recovery phone numbers, or linked email addresses are modified",
+        "Checking your bank account balance at the end of the week",
+        "Reviewing public engagement metrics on recent posts",
+        "Checking for browser extension updates"
+      ],
+      "correct_answer": 0,
+      "feedback": "High-security platforms send out-of-band alerts whenever core authentication settings change, giving owners a window to revert unauthorized actions.",
+      "points": 1
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "owner": "Kenneth A. Atampugre",
+  "team": "Blue Team",
+  "area": "Prevention & Detection",
+  "questions": [
+    {
+      "id": 1,
+      "story": "A customer sends a screenshot of a fake payment alert claiming money was transferred to your account and asks for immediate product dispatch.",
+      "question": "What process control prevents sending goods based on fraudulent payment notifications?",
+      "options": [
+        "Dispatching the order immediately to maintain customer satisfaction",
+        "Out-of-band verification (checking your official banking or Mobile Money app directly before releasing goods)",
+        "Replying to the customer asking if the screenshot is real",
+        "Clearing your web browser history"
+      ],
+      "correct_answer": 1,
+      "feedback": "Never rely on customer-provided screenshots or SMS alerts; always verify funds directly inside your official financial app.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "Attackers send fake SMS alerts mimicking official Mobile Money or bank deposit receipts.",
+      "question": "What technical indicator helps distinguish real transactional alerts from spoofed SMS messages?",
+      "options": [
+        "Checking if the SMS came from a standard 10-digit personal phone number instead of an official registered Sender ID",
+        "Checking if the text message contains emojis",
+        "Reading the SMS twice to see if the wording changes",
+        "Restarting your mobile device"
+      ],
+      "correct_answer": 0,
+      "feedback": "Spoofed SMS payment alerts are frequently sent from regular personal mobile numbers rather than verified corporate Sender IDs.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "An employee receives a suspicious notification claiming an order payment was reversed.",
+      "question": "Which automated security setting alerts the business to unauthorized attempts to modify store account settings?",
+      "options": [
+        "Disabling all system security notifications",
+        "Real-time SMS/Email alerts for administrative account modifications and payment gateway setting updates",
+        "Manually auditing bank statements at the end of the year",
+        "Increasing screen brightness"
+      ],
+      "correct_answer": 1,
+      "feedback": "Real-time administrative alerts notify owners immediately if an attacker attempts to alter connected payout details.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "A fraudster claims they overpaid for an item and demands an immediate refund via a separate Mobile Money transfer.",
+      "question": "What security policy protects your business from overpayment refund fraud?",
+      "options": [
+        "Sending cash back immediately via a personal phone number",
+        "Enforcing a policy where refunds are only issued through official payment gateway channels after full bank settlement verification",
+        "Asking a coworker to pay the refund out of pocket",
+        "Ignoring the customer entirely without checking statements"
+      ],
+      "correct_answer": 1,
+      "feedback": "Overpayment scams rely on sense of urgency; refunding through unverified channels before bank settlement results in direct financial loss.",
+      "points": 1
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "owner": "Kenneth  Atampugre",
+  "team": "Blue Team",
+  "area": "Prevention & Detection",
+  "questions": [
+    {
+      "id": 1,
+      "story": "An employee receives a time-sensitive email containing a fake payment link and accidentally enters their business credentials on a spoofed portal.",
+      "question": "Which defensive control is most effective at preventing an attacker from using these stolen credentials to gain unauthorized entry?",
+      "options": [
+        "Requiring complex passwords with special characters",
+        "Enforcing mandatory Multi-Factor Authentication (MFA) via an authenticator app across all business accounts",
+        "Relying on web browser password auto-save features",
+        "Changing account passwords every 90 days"
+      ],
+      "correct_answer": 1,
+      "feedback": "MFA provides a vital secondary barrier. Without physical access to the secondary token, stolen credentials alone cannot grant access.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "Attackers frequently create lookalike domain names to trick staff during payment confirmation requests.",
+      "question": "What technical protocol should your domain administrator configure to help external mail servers reject spoofed emails claiming to come from your official domain?",
+      "options": [
+        "Installing local desktop antivirus tools",
+        "Changing the public display name on your email client",
+        "Implementing DMARC alongside SPF and DKIM authentication records",
+        "Disabling incoming external email attachments"
+      ],
+      "correct_answer": 2,
+      "feedback": "DMARC/SPF/DKIM policies instruct receiving mail servers to automatically block or flag spoofed emails pretending to originate from your organization.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "An attacker attempts to log into your business account using credentials harvested from a phishing form.",
+      "question": "Which automated detection indicator alerts the business in real time that an unauthorized party is logging in?",
+      "options": [
+        "Real-time automated alerts for unrecognized device logins, unfamiliar IP addresses, or impossible travel anomalies",
+        "Reviewing email login logs manually at the end of each billing cycle",
+        "Disabling administrative login notifications to avoid alert fatigue",
+        "Checking system CPU usage in Task Manager"
+      ],
+      "correct_answer": 0,
+      "feedback": "Instant push/SMS alerts for new devices or unexpected geographical logins allow immediate session revocation before damage occurs.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "After obtaining access to an account, an attacker silently alters account settings to maintain access without drawing attention.",
+      "question": "What specific configuration should be audited to detect hidden persistence mechanisms set up by an attacker?",
+      "options": [
+        "Checking the total size of your inbox storage quota",
+        "Clearing your browser cache and cookies",
+        "Auditing account recovery details (phone numbers, secondary emails) and active API key connections",
+        "Running a disk defragmentation scan"
+      ],
+      "correct_answer": 2,
+      "feedback": "Attackers frequently add shadow recovery addresses or authorized third-party applications to retain access after a password reset.",
+      "points": 1
+    }
+  ]
+}

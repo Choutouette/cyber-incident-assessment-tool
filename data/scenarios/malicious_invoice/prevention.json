@@ -1,0 +1,63 @@
+{
+  "owner": "Kenneth A. Atampugre",
+  "team": "Blue Team",
+  "area": "Prevention & Detection",
+  "questions": [
+    {
+      "id": 1,
+      "story": "An email impersonating a regular shipping vendor arrives containing an 'OVERDUE INVOICE' attached as a compressed .zip archive.",
+      "question": "What Secure Email Gateway (SEG) rule provides the strongest initial boundary defense against malicious attachments?",
+      "options": [
+        "Configuring mail gateway policies to block or sandbox incoming .zip, .exe, or macro-enabled files from unverified external senders",
+        "Asking employees to hover over attachment filenames before downloading",
+        "Increasing email inbox storage capacity to handle large files",
+        "Forwarding all incoming attachments to personal email accounts"
+      ],
+      "correct_answer": 0,
+      "feedback": "Automated email filtering blocks high-risk file types at the network perimeter before they ever land in an employee inbox.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "A supplier email arrives requesting that future invoice payments be remitted to a new, updated bank account or mobile money number.",
+      "question": "Which organizational process control prevents financial loss from modified payment instructions?",
+      "options": [
+        "Replying directly to the email asking if the new bank details are genuine",
+        "Out-of-band verification (confirming changes directly with the vendor via a trusted, pre-established phone number)",
+        "Processing the payment immediately to avoid late fee penalties",
+        "Posting a public inquiry on social media"
+      ],
+      "correct_answer": 1,
+      "feedback": "Never verify payment account changes using contact info provided in the suspicious message itself; always use an independent, verified channel.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "An employee double-clicks an attached document containing a hidden malicious script designed to execute in the background.",
+      "question": "Which security solution detects and isolates unauthorized background execution on a local endpoint device?",
+      "options": [
+        "Web browser pop-up blockers",
+        "Disconnecting the monitor from the desktop computer",
+        "Active Endpoint Detection and Response (EDR) or Antivirus software with real-time process execution monitoring",
+        "Clearing local web browser history"
+      ],
+      "correct_answer": 2,
+      "feedback": "Modern EDR tools monitor running system processes and terminate suspicious behavior (like a PDF spawning a command shell) in real time.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "During a Business Email Compromise (BEC), attackers often manipulate email routing so they can read incoming financial replies silently.",
+      "question": "Which detection indicator signals that an attacker is secretly monitoring financial transactions?",
+      "options": [
+        "Automated alerts flagging newly created inbox rules that forward messages containing words like 'invoice' or 'payment' to external addresses",
+        "High CPU usage on the local office workstation",
+        "Receiving duplicate copies of promotional newsletters",
+        "Slower internet speed during peak office hours"
+      ],
+      "correct_answer": 0,
+      "feedback": "Covert forwarding rules are a classic BEC indicator used by threat actors to monitor payment discussions without interfering with the primary user.",
+      "points": 1
+    }
+  ]
+}
