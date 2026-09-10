@@ -1,0 +1,63 @@
+{
+  "owner": "Carol Selikem Nyanyui Tay",
+  "team": "Digital Forensics",
+  "area": "Evidence Identification and Preservation",
+  "questions": [
+    {
+      "id": 1,
+      "story": "At 8:43 AM, an email appears to come from a regular supplier. The subject reads \"OVERDUE INVOICE — FINAL WARNING\" and it contains an attachment named Invoice_Details.zip.",
+      "question": "Which email artefacts should be preserved for forensic examination?",
+      "options": [
+        "Only the supplier's name",
+        "The original email, sender address, email headers where available, timestamp, subject, and attachment",
+        "Only the attachment filename",
+        "Only a screenshot of the email"
+      ],
+      "correct_answer": 1,
+      "feedback": "The original email and its associated metadata and attachment can help establish the source, timing, content, and nature of the suspected incident.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "At 8:51 AM, the supplier says they did not send the email. The employee also notices that the sender's address is slightly different from the supplier's normal address.",
+      "question": "Which combination of evidence would be most useful for investigating the discrepancy?",
+      "options": [
+        "Only the employee's memory of receiving the email",
+        "Only the supplier's company name",
+        "The sender address, email headers, timestamp, attachment name and type, and the supplier's verification",
+        "Only the ZIP file"
+      ],
+      "correct_answer": 2,
+      "feedback": "Correlating the sender information, technical email details, attachment information, timing, and trusted supplier verification provides a stronger basis for determining whether the message was impersonated.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "At 9:07 AM, an employee admits that they opened the ZIP attachment. A security warning appeared, and the employee wants to restart the computer to see if the problem goes away.",
+      "question": "What should happen before unnecessary changes are made to the computer?",
+      "options": [
+        "Document the incident and preserve relevant evidence before making unnecessary changes",
+        "Restart the computer several times to test whether the warning disappears",
+        "Delete the attachment and empty the recycle bin",
+        "Continue opening the attachment to determine what it does"
+      ],
+      "correct_answer": 0,
+      "feedback": "Unnecessary changes to the device can alter or destroy potentially useful evidence. The incident should be documented and relevant evidence preserved before further activity.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "At 9:22 AM, the investigation records the email arriving at 8:43 AM, the supplier denying that they sent it at 8:51 AM, and the employee opening the attachment at 9:07 AM. A security warning appeared immediately afterward.",
+      "question": "What is the most appropriate forensic interpretation of these events?",
+      "options": [
+        "The supplier definitely carried out the attack",
+        "The sequence is consistent with a possible malicious-file incident, so the email, attachment, and affected device should be investigated together",
+        "The security warning proves that the attacker successfully gained access",
+        "The email can be ignored because the employee did not report a confirmed compromise"
+      ],
+      "correct_answer": 1,
+      "feedback": "Correlating the timeline across the email, attachment, and device provides a stronger basis for investigation, but the available evidence does not by itself prove successful compromise or identify the attacker.",
+      "points": 1
+    }
+  ]
+}
