@@ -1,0 +1,74 @@
+{
+  "owner": "Kenneth Atampugre",
+  "team": "Blue Team",
+  "area": "Prevention & Detection",
+  "scenarios": [
+    {
+      "id": "fake_customer_payment",
+      "title": "Fake Customer Payment / Account Credential Theft",
+      "attacker_objective": "Use a fake customer/payment interaction to persuade the business owner to visit a fraudulent payment page and expose business account credentials, creating an opportunity for account compromise.",
+      "questions": [
+        {
+          "id": 1,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "10:18 AM — A New Customer\n\nYou are running your small online business and receive a message from a customer you have never dealt with before.\n\n“Hi, I have just made payment for the items. Please confirm it so you can start preparing my order. I’m in a hurry, so please use the payment confirmation link I sent.”\n\nThere is a link in the message. You check your usual payment account, but you cannot see a payment yet.",
+          "question": "Which preventive control would most effectively reduce the risk of this situation escalating?",
+          "options": [
+            "Relying on the customer to prove they are trustworthy.",
+            "A written policy requiring payment confirmation only through the business's own trusted payment platform, regardless of links sent by customers.",
+            "Asking staff to judge each message on a case-by-case basis with no set procedure.",
+            "Waiting until the customer sends the money to decide the next step."
+          ],
+          "correct_answer": 1,
+          "feedback": "A verification policy removes the decision from an individual's judgment during pressure and closes off the payment-link entry point before it can be used to harvest credentials."
+        },
+        {
+          "id": 2,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "10:24 AM — The Customer Becomes Persistent\n\nYou have not opened the link.\n\nA few minutes later, the customer sends another message: “The payment is already processing. The confirmation page just needs your business email login before the payment can be released. Please do it now because I need the order urgently.”\n\nYou open the message again and notice that the website address does not match the normal payment service your business uses. Something about the situation feels wrong.",
+          "question": "What detection mechanism would most help flag this stage as suspicious in real time, before credentials are entered?",
+          "options": [
+            "A spam filter tuned only for social media promotions.",
+            "A browser or DNS-based warning that flags mismatched or newly registered domains before employees can enter credentials on them.",
+            "A monthly review of customer service chat volume.",
+            "A rule that automatically blocks messages from all new customers."
+          ],
+          "correct_answer": 1,
+          "feedback": "A domain-reputation or link-scanning control at this point can catch the mismatch between the \"payment\" page and the business's real payment service before credentials are typed in — something a pressured employee might miss."
+        },
+        {
+          "id": 3,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "10:31 AM — The Attack Develops\n\nYou did not provide the password. The customer continues sending messages and insists that the payment cannot be completed unless you log in through the link.\n\nAt almost the same time, you receive a security notification saying that someone has attempted to access one of your business accounts from an unfamiliar device.\n\nYou now have three pieces of information: an unexpected payment claim; a suspicious payment link requesting business credentials; and an unfamiliar account-access attempt.",
+          "question": "Which detection capability made it possible to notice the account-access attempt at all, alongside the ongoing payment scam?",
+          "options": [
+            "Manual password changes performed without any alerting.",
+            "Login/account-access alerting that notifies the account owner of sign-in attempts from unrecognized devices.",
+            "Turning off security notifications to reduce alert fatigue.",
+            "Relying on customers to report unusual account behavior."
+          ],
+          "correct_answer": 1,
+          "feedback": "Real-time login-alert monitoring is what surfaced the unauthorized access attempt. Without it, the credential-phishing attempt could have gone unnoticed until well after a compromise."
+        },
+        {
+          "id": 4,
+          "stage": "blue_team",
+          "category": "Prevention & Detection",
+          "story": "10:38 AM — Reviewing the Gaps\n\nThe business owner did not open the link and did not hand over the password, so no confirmed compromise has occurred.\n\nHowever, the unfamiliar-device access attempt shows the attacker was already trying a second path into the business accounts while the payment story was still running.\n\nThe owner now wants to know what should be put in place so that a similar attempt is stopped earlier next time, and caught immediately if it isn't.",
+          "question": "Which combination of controls would best prevent and detect this type of attack going forward?",
+          "options": [
+            "Multi-factor authentication on business accounts, staff training on verifying payment claims independently, and continuous monitoring/alerting for unfamiliar login attempts.",
+            "Publishing the business's payment account details publicly so customers can verify them directly.",
+            "Disabling login alerts so staff are not alarmed by routine activity.",
+            "Trusting any message that combines a link with a sense of urgency."
+          ],
+          "correct_answer": 0,
+          "feedback": "Layering MFA (limits the value of stolen credentials), staff verification habits (prevents falling for the pretext), and login-attempt monitoring (detects follow-on compromise attempts) addresses the attack at multiple stages instead of relying on a single control."
+        }
+      ]
+    }
+  ]
+}
