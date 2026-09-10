@@ -1,0 +1,62 @@
+{
+  "owner": "Carol Selikem Nyanyui Tay",
+  "team": "Digital Forensics",
+  "area": "Evidence Identification and Preservation",
+  "questions": [
+    {
+      "id": 1,
+      "story": "At 2:16 PM, the business receives a security notification showing a login from an unfamiliar device. Shortly afterward, the account's recovery information is changed.",
+      "question": "Which information should be preserved to help investigate the suspected account takeover?",
+      "options": [
+        "Only the business owner's username",
+        "The login notification, timestamp, device and location information where available, and the security changes made to the account",
+        "Only the new recovery information",
+        "Only a screenshot of the business profile"
+      ],
+      "correct_answer": 1,
+      "feedback": "Login records, timestamps, device or location information, and account-security changes can help establish what happened and when.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "At 2:23 PM, a customer sends the business a screenshot showing that the business account sent them a suspicious message containing a link.",
+      "question": "How can the customer's screenshot contribute to the investigation?",
+      "options": [
+        "It proves exactly who controlled the account",
+        "It can corroborate the message received and its timing, especially if the original message later becomes unavailable",
+        "It proves that the customer clicked the suspicious link",
+        "It replaces the need to preserve the account's activity records"
+      ],
+      "correct_answer": 1,
+      "feedback": "A customer-provided screenshot can provide useful corroborating evidence about what message was received and when, but it does not by itself establish who controlled the account.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "At 2:29 PM, a person contacting the business through WhatsApp claims to be helping recover the account and asks the owner to provide the login or authentication code that was just received.",
+      "question": "What evidence should be documented and preserved at this stage?",
+      "options": [
+        "Only the person's WhatsApp profile picture",
+        "The conversation, sender information, timestamps, authentication-code request, login alerts, and relevant account activity",
+        "The authentication code itself should be sent to the person for verification",
+        "Only the owner's description of the conversation"
+      ],
+      "correct_answer": 1,
+      "feedback": "Preserving the conversation and correlating it with authentication and account-activity records can help establish the sequence of the suspected social-engineering and takeover activity. The authentication code should never be shared.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "At 2:40 PM, the business owner believes that the person who contacted them on WhatsApp is the attacker responsible for the account takeover.",
+      "question": "What is the most defensible forensic conclusion?",
+      "options": [
+        "The WhatsApp sender is definitely the attacker",
+        "The evidence proves that the sender personally controlled the compromised account",
+        "The evidence supports a suspected account takeover and related social engineering, but additional evidence is needed to establish attribution"
+      ],
+      "correct_answer": 2,
+      "feedback": "Forensic findings should distinguish evidence of the incident from attribution. The available evidence may support a suspected takeover and social-engineering activity without proving who was responsible.",
+      "points": 1
+    }
+  ]
+}
