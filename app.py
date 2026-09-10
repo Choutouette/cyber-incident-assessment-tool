@@ -5,8 +5,10 @@ import streamlit as st
 # -----------------------------
 # Load scenario data
 # -----------------------------
-def load_scenarios():
-    with open("data/scenarios.json", "r", encoding="utf-8") as file:
+def load_scenario(scenario_id):
+    scenario_path = f"data/scenarios/{scenario_id}/attack.json"
+
+    with open(scenario_path, "r", encoding="utf-8") as file:
         return json.load(file)
 
 
@@ -21,14 +23,21 @@ st.set_page_config(
 
 
 # -----------------------------
-# Load data
+# Scenario options
 # -----------------------------
-scenarios = load_scenarios()
+SCENARIOS = {
+    "Fake Customer Alert": "fake_customer_alert",
+    "Malicious Invoice": "malicious_invoice",
+    "Social Media Takeover": "social_medi_takeover"
+}
 
 
 # -----------------------------
 # Session state
 # -----------------------------
+if "selected_scenario" not in st.session_state:
+    st.session_state.selected_scenario = None
+
 if "question_number" not in st.session_state:
     st.session_state.question_number = 0
 
@@ -45,46 +54,45 @@ if "started" not in st.session_state:
 # -----------------------------
 # Home page
 # -----------------------------
-st.title("🛡️ Cyber Incident Assessment & Forensic Readiness Tool")
-
-st.write(
-    "A scenario-based training and assessment tool that helps "
-    "small-scale online businesses understand cyber incidents, "
-    "response and digital forensics."
-)
-
-st.info(
-    "This tool uses simulated cyber incidents for training. "
-    "Do not enter real passwords, PINs, OTPs or confidential information."
-)
-
-
-# -----------------------------
-# Scenario selection
-# -----------------------------
-scenario_id = st.selectbox(
-    "Choose an incident scenario",
-    list(scenarios.keys())
-)
-
-scenario = scenarios[scenario_id]
-
-
 if not st.session_state.started:
 
-    st.subheader(scenario["title"])
+    st.subheader("Choose an Incident Scenario")
 
-    st.write(scenario["description"])
+    selected_name = st.selectbox(
+        "Select a scenario category:",
+        list(SCENARIOS.keys())
+    )
+
+    selected_id = SCENARIOS[selected_name]
+
+    scenario = load_scenario(selected_id)
+
+    st.session_state.selected_scenario = selected_id
+
+    st.subheader(selected_name)
+
+    st.write(
+        "You will work through a simulated cyber incident "
+        "and make decisions based on the information provided."
+    )
 
     if st.button("Start Assessment", type="primary"):
+        st.session_state.question_number = 0
+        st.session_state.score = 0
+        st.session_state.answers = []
         st.session_state.started = True
         st.rerun()
+
 
 
 # -----------------------------
 # Assessment
 # -----------------------------
 else:
+
+    scenario = load_scenario(
+        st.session_state.selected_scenario
+    )
 
     questions = scenario["questions"]
     current = st.session_state.question_number
