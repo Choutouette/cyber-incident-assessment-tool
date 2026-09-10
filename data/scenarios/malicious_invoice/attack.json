@@ -2,49 +2,58 @@
   "owner": "Nana Osei Sarpong Bonsu",
   "team": "Red Team",
   "area": "Attack Recognition",
-  "questions": [
+  "scenarios": [
     {
-      "id": 1,
-      "story": "You manage a small online business in Ghana. One morning, an employee receives an email claiming to be from a service provider the business normally uses.",
-      "question": "What should the employee do first?",
-      "options": [
-        "Click the link immediately to check the message",
-        "Verify the message and sender before taking any action",
-        "Forward the email to customers",
-        "Reply to the sender with the employee's password"
-      ],
-      "correct_answer": 1,
-      "feedback": "The safest first step is to verify the message and sender before interacting with suspicious content.",
-      "points": 1
-    },
-    {
-      "id": 2,
-      "story": "The employee notices that the sender's address is slightly different from the address normally used by the service provider.",
-      "question": "What does this difference suggest?",
-      "options": [
-        "The email is automatically safe",
-        "The difference is irrelevant",
-        "The message may be impersonating a legitimate organization",
-        "The employee should send their password"
-      ],
-      "correct_answer": 2,
-      "feedback": "A suspicious sender address can be an important warning sign of impersonation or phishing.",
-      "points": 1
-    },
-    {
-      "id": 3,
-      "story": "The email contains a link asking the employee to sign in to the business account.",
-      "question": "What is the safest way to verify the link?",
-      "options": [
-        "Click it and enter the password",
-        "Use a known legitimate website or trusted contact to verify the request",
-        "Send the link to customers",
-        "Ignore all security warnings"
-      ],
-      "correct_answer": 1,
-      "feedback": "Suspicious links should be verified through a trusted channel rather than used directly.",
-      "points": 1
+      "id": "malicious_invoice",
+      "title": "Malicious Invoice / Document Attachment",
+      "attacker_objective": "Impersonate a regular supplier or shipping partner and use an unexpected invoice attachment plus urgency to persuade an employee to open a potentially malicious file, creating an opportunity for unauthorized access.",
+      "questions": [
+        {
+          "id": 1,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "8:43 AM — The Invoice Arrives\n\nYou are handling business emails when a message arrives from someone who appears to be your regular shipping partner.\n\nSubject: “OVERDUE INVOICE — FINAL WARNING”\n\nThe message says the invoice must be reviewed immediately. Normally, this supplier sends invoices as PDF files. This time, the attachment is Invoice_Details.zip.",
+          "question": "What would you do before opening it?",
+          "options": [
+            "Open it immediately because the message says it is a final warning.",
+            "Verify the message and attachment with the supplier using an established, trusted contact method.",
+            "Forward the attachment to a customer and ask them to open it.",
+            "Disable your device's security controls so the file can open."
+          ],
+          "correct_answer": 1,
+          "feedback": "Verification through an established supplier contact is the safer choice. The unexpected ZIP file and urgent wording are important warning signs."
+        },
+        {
+          "id": 2,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "8:51 AM — Something Doesn't Match\n\nYou contact the supplier using the phone number already stored in your business records. The supplier says: “We did not send that email. Our invoices are still being sent as PDFs.”\n\nYou return to the email. The sender name looks familiar, but the actual email address is slightly different from the supplier's normal address. The message is also pressuring you to open the attachment immediately.",
+          "question": "What does this combination suggest?",
+          "options": [
+            "The supplier has changed its normal email process without telling you.",
+            "The attachment is likely part of a simulated malicious-file delivery attempt using supplier impersonation and urgency.",
+            "The ZIP file is safe because it is smaller than a PDF.",
+            "The message is probably just a normal reminder."
+          ],
+          "correct_answer": 1,
+          "feedback": "The combination of supplier impersonation, an unexpected file type and urgency strongly suggests a malicious attachment/social-engineering attempt."
+        },
+        {
+          "id": 3,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "9:07 AM — The Employee Has Already Opened It\n\nAnother employee saw the email before it was verified and opened the attachment. A few minutes later, their device displays an unusual security warning and begins behaving differently from normal.\n\nThe employee says: “I only opened the invoice. I didn't download anything else.”",
+          "question": "What is the most likely objective?",
+          "options": [
+            "To improve the formatting of the supplier's invoice.",
+            "To create an opportunity for unauthorized access to the employee's device or business environment.",
+            "To update the supplier's delivery address.",
+            "To confirm that the business received its normal invoice."
+          ],
+          "correct_answer": 1,
+          "feedback": "The simulated attachment is the attacker's delivery mechanism. The objective is unauthorized access rather than ordinary invoice processing."
+        }
+      ]
     }
   ]
 }
-

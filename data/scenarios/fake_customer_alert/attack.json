@@ -2,50 +2,58 @@
   "owner": "Nana Osei Sarpong Bonsu",
   "team": "Red Team",
   "area": "Attack Recognition",
-  "questions": [
+  "scenarios": [
     {
-      "id": 1,
-      "story": "You manage a small online business in Ghana. One morning, an employee receives an email claiming to be from a service provider the business normally uses.",
-      "question": "What should the employee do first?",
-      "options": [
-        "Click the link immediately to check the message",
-        "Verify the message and sender before taking any action",
-        "Forward the email to customers",
-        "Reply to the sender with the employee's password"
-      ],
-      "correct_answer": 1,
-      "feedback": "The safest first step is to verify the message and sender before interacting with suspicious content.",
-      "points": 1
-    },
-    {
-      "id": 2,
-      "story": "The employee notices that the sender's address is slightly different from the address normally used by the service provider.",
-      "question": "What does this difference suggest?",
-      "options": [
-        "The email is automatically safe",
-        "The difference is irrelevant",
-        "The message may be impersonating a legitimate organization",
-        "The employee should send their password"
-      ],
-      "correct_answer": 2,
-      "feedback": "A suspicious sender address can be an important warning sign of impersonation or phishing.",
-      "points": 1
-    },
-    {
-      "id": 3,
-      "story": "The email contains a link asking the employee to sign in to the business account.",
-      "question": "What is the safest way to verify the link?",
-      "options": [
-        "Click it and enter the password",
-        "Use a known legitimate website or trusted contact to verify the request",
-        "Send the link to customers",
-        "Ignore all security warnings"
-      ],
-      "correct_answer": 1,
-      "feedback": "Suspicious links should be verified through a trusted channel rather than used directly.",
-      "points": 1
+      "id": "fake_customer_payment",
+      "title": "Fake Customer Payment / Account Credential Theft",
+      "attacker_objective": "Use a fake customer/payment interaction to persuade the business owner to visit a fraudulent payment page and expose business account credentials, creating an opportunity for account compromise.",
+      "questions": [
+        {
+          "id": 1,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "10:18 AM — A New Customer\n\nYou are running your small online business and receive a message from a customer you have never dealt with before.\n\n“Hi, I have just made payment for the items. Please confirm it so you can start preparing my order. I’m in a hurry, so please use the payment confirmation link I sent.”\n\nThere is a link in the message. You check your usual payment account, but you cannot see a payment yet.",
+          "question": "What would you do next?",
+          "options": [
+            "Open the link because the customer says the payment has already been made.",
+            "Ask the customer to send their account password so you can verify them.",
+            "Check the payment independently through the business's normal bank/mobile-money/payment platform before taking any action.",
+            "Send the link to another customer and ask whether it looks legitimate."
+          ],
+          "correct_answer": 2,
+          "feedback": "The safest choice is to verify the payment independently through the trusted payment platform. The customer's link should not become the source of truth for whether money was received."
+        },
+        {
+          "id": 2,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "10:24 AM — The Customer Becomes Persistent\n\nYou have not opened the link.\n\nThe customer says the payment is already processing and that the confirmation page needs your business email login before the payment can be released. You notice that the website address does not match the normal payment service your business uses.",
+          "question": "What is the strongest warning sign at this point?",
+          "options": [
+            "The customer is ordering several products.",
+            "The customer is asking for a business email password through an unfamiliar payment page.",
+            "The customer says the order is urgent.",
+            "The customer sent the message through social media."
+          ],
+          "correct_answer": 1,
+          "feedback": "The strongest indicator is the request for a business email password through an unfamiliar payment page. The payment story is being used as a path to obtain credentials."
+        },
+        {
+          "id": 3,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "10:31 AM — The Attack Develops\n\nYou did not provide the password. The customer continues insisting that you log in through the link. At almost the same time, you receive a security notification saying someone has attempted to access one of your business accounts from an unfamiliar device.\n\nYou now have an unexpected payment claim, a suspicious payment link requesting business credentials, and an unfamiliar account-access attempt.",
+          "question": "What is most likely happening?",
+          "options": [
+            "The payment system is performing a normal update.",
+            "The customer is helping you complete the payment.",
+            "The payment interaction is likely being used as a phishing attempt, with the attacker trying to obtain access to a business account.",
+            "The customer's phone has probably lost internet connection."
+          ],
+          "correct_answer": 2,
+          "feedback": "The sequence points to a credential-phishing and account-compromise attempt. The attacker is using a believable payment situation to create an opportunity to obtain access."
+        }
+      ]
     }
   ]
-
 }
-

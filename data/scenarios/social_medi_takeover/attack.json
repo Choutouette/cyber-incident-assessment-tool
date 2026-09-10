@@ -2,48 +2,58 @@
   "owner": "Nana Osei Sarpong Bonsu",
   "team": "Red Team",
   "area": "Attack Recognition",
-  "questions": [
+  "scenarios": [
     {
-      "id": 1,
-      "story": "You manage a small online business in Ghana. One morning, an employee receives an email claiming to be from a service provider the business normally uses.",
-      "question": "What should the employee do first?",
-      "options": [
-        "Click the link immediately to check the message",
-        "Verify the message and sender before taking any action",
-        "Forward the email to customers",
-        "Reply to the sender with the employee's password"
-      ],
-      "correct_answer": 1,
-      "feedback": "The safest first step is to verify the message and sender before interacting with suspicious content.",
-      "points": 1
-    },
-    {
-      "id": 2,
-      "story": "The employee notices that the sender's address is slightly different from the address normally used by the service provider.",
-      "question": "What does this difference suggest?",
-      "options": [
-        "The email is automatically safe",
-        "The difference is irrelevant",
-        "The message may be impersonating a legitimate organization",
-        "The employee should send their password"
-      ],
-      "correct_answer": 2,
-      "feedback": "A suspicious sender address can be an important warning sign of impersonation or phishing.",
-      "points": 1
-    },
-    {
-      "id": 3,
-      "story": "The email contains a link asking the employee to sign in to the business account.",
-      "question": "What is the safest way to verify the link?",
-      "options": [
-        "Click it and enter the password",
-        "Use a known legitimate website or trusted contact to verify the request",
-        "Send the link to customers",
-        "Ignore all security warnings"
-      ],
-      "correct_answer": 1,
-      "feedback": "Suspicious links should be verified through a trusted channel rather than used directly.",
-      "points": 1
+      "id": "social_media_account_takeover",
+      "title": "Business Social Media Account Takeover",
+      "attacker_objective": "Gain control of a business social media account and use that control to impersonate the business and potentially deceive customers.",
+      "questions": [
+        {
+          "id": 1,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "2:16 PM — An Unexpected Security Alert\n\nYou manage your business's social media account. While preparing a normal business post, your phone displays: “New login detected.” You did not log in from a new device.\n\nA few minutes later, you notice that some account-security or recovery information has changed even though you did not change it.",
+          "question": "What is your first assessment of the situation?",
+          "options": [
+            "It is probably a normal platform update.",
+            "It may indicate unauthorized access to the business account.",
+            "The platform is automatically improving your business profile.",
+            "It means one of your customers has placed an order."
+          ],
+          "correct_answer": 1,
+          "feedback": "An unfamiliar login together with unexpected account-security changes is a strong indication that someone else may have accessed the account."
+        },
+        {
+          "id": 2,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "2:23 PM — The Account Starts Acting Strangely\n\nYou notice that a new message has been sent from the business account to several customers. One customer replies: “Why are you asking me to click this link?” You did not send the message.\n\nYou check the account again and find that the profile or recovery details are no longer exactly as you left them.",
+          "question": "What does the new information tell you?",
+          "options": [
+            "The platform has automatically sent a marketing campaign.",
+            "The account may have been taken over and is now being used to impersonate the business.",
+            "The customers have accidentally changed the account.",
+            "The business has received too many messages."
+          ],
+          "correct_answer": 1,
+          "feedback": "Messages being sent without the owner's action, combined with unexpected account changes, strongly suggests that an unauthorized person may control the account."
+        },
+        {
+          "id": 3,
+          "stage": "red_team",
+          "category": "Attack Recognition",
+          "story": "2:29 PM — The Attacker Reveals the Objective\n\nYou receive a WhatsApp message from someone claiming to be helping you recover the account.\n\nThey say: “Your account has been compromised. I can secure it for you. Send me the login code you just received so I can cancel the attack.”\n\nAt the same time, you can still see unfamiliar activity on the business account.",
+          "question": "What is happening?",
+          "options": [
+            "The support agent is helping you recover the account.",
+            "The platform is performing a routine security check.",
+            "The attacker is using impersonation to obtain an authentication code and maintain or gain control of the business account.",
+            "The customer messages are causing the account to malfunction."
+          ],
+          "correct_answer": 2,
+          "feedback": "The request for an authentication code from an unverified person is consistent with an account-takeover attempt. The code should not be disclosed."
+        }
+      ]
     }
   ]
 }
