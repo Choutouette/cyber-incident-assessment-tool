@@ -60,7 +60,17 @@ def _safe_text(value):
     if value is None:
         return ""
 
-    return str(value).replace("\r\n", "\n").replace("\r", "\n")
+    return (
+        str(value)
+        .replace("\r\n", "\n")
+        .replace("\r", "\n")
+        .replace("—", "-")
+        .replace("–", "-")
+        .replace("“", '"')
+        .replace("”", '"')
+        .replace("‘", "'")
+        .replace("’", "'")
+    )
 
 
 def _write_wrapped(pdf, text, size=10, height=5):

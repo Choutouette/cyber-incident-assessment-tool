@@ -1,0 +1,160 @@
+{
+  "id": "social_media_account_takeover",
+  "title": "Business Social Media Account Takeover",
+  "attacker_objective": "Gain control of a business social media account and use that control to impersonate the business and potentially deceive customers.",
+  "questions": [
+    {
+      "id": "attack_1",
+      "story": "2:16 PM — An Unexpected Security Alert\n\nYou manage your business's social media account. While preparing a normal business post, your phone displays: “New login detected.” You did not log in from a new device.\n\nA few minutes later, you notice that some account-security or recovery information has changed even though you did not change it.",
+      "question": "What is your first assessment of the situation?",
+      "options": [
+        "It is probably a normal platform update.",
+        "It may indicate unauthorized access to the business account.",
+        "The platform is automatically improving your business profile.",
+        "It means one of your customers has placed an order."
+      ],
+      "correct_answer": 1,
+      "feedback": "An unfamiliar login together with unexpected account-security changes is a strong indication that someone else may have accessed the account.",
+      "points": 1
+    },
+    {
+      "id": "attack_2",
+      "story": "2:23 PM — The Account Starts Acting Strangely\n\nYou notice that a new message has been sent from the business account to several customers. One customer replies: “Why are you asking me to click this link?” You did not send the message.\n\nYou check the account again and find that the profile or recovery details are no longer exactly as you left them.",
+      "question": "What does the new information tell you?",
+      "options": [
+        "The platform has automatically sent a marketing campaign.",
+        "The account may have been taken over and is now being used to impersonate the business.",
+        "The customers have accidentally changed the account.",
+        "The business has received too many messages."
+      ],
+      "correct_answer": 1,
+      "feedback": "Messages being sent without the owner's action, combined with unexpected account changes, strongly suggests that an unauthorized person may control the account.",
+      "points": 1
+    },
+    {
+      "id": "attack_3",
+      "story": "2:29 PM — The Attacker Reveals the Objective\n\nYou receive a WhatsApp message from someone claiming to be helping you recover the account.\n\nThey say: “Your account has been compromised. I can secure it for you. Send me the login code you just received so I can cancel the attack.”\n\nAt the same time, you can still see unfamiliar activity on the business account.",
+      "question": "What is happening?",
+      "options": [
+        "The support agent is helping you recover the account.",
+        "The platform is performing a routine security check.",
+        "The attacker is using impersonation to obtain an authentication code and maintain or gain control of the business account.",
+        "The customer messages are causing the account to malfunction."
+      ],
+      "correct_answer": 2,
+      "feedback": "The request for an authentication code from an unverified person is consistent with an account-takeover attempt. The code should not be disclosed.",
+      "points": 1
+    },
+    {
+      "id": "blue_1",
+      "story": "2:16 PM — An Unexpected Security Alert\n\nYou manage your business's social media account. While preparing a normal business post, your phone displays a notification: “New login detected.”\n\nYou did not log in from a new device. A few minutes later, you notice that some account-security or recovery information has changed even though you did not change it.",
+      "question": "Which detection feature made it possible to notice the account issue almost immediately?",
+      "options": [
+        "Login/new-device notifications and account-security change alerts enabled on the platform.",
+        "Checking the account manually once a week.",
+        "Disabling notifications to avoid distraction while posting.",
+        "Waiting for a customer to mention that something seemed wrong."
+      ],
+      "correct_answer": 0,
+      "feedback": "Platform-level login and security-change alerts are what surfaced the compromise in near real time, before further damage occurred.",
+      "points": 1
+    },
+    {
+      "id": "blue_2",
+      "story": "2:23 PM — The Account Starts Acting Strangely\n\nYou try to review the account. Before you can finish, you notice that a new message has been sent from the business account to several customers. One customer replies: “Why are you asking me to click this link?”\n\nYou did not send the message. You check the account again and find that the profile or recovery details are no longer exactly as you left them.",
+      "question": "What ongoing detection practice would help catch this kind of unauthorized activity sooner, before customers have to flag it?",
+      "options": [
+        "Monitoring outgoing account activity/sent messages, and reviewing customer replies or reports for signs of impersonation.",
+        "Assuming customers will always independently verify suspicious links themselves.",
+        "Disabling the ability to view sent messages to reduce clutter.",
+        "Waiting until the end of the month to review account activity."
+      ],
+      "correct_answer": 0,
+      "feedback": "Active monitoring of outbound activity, paired with a channel for customers to flag suspicious messages, shortens the time between compromise and discovery.",
+      "points": 1
+    },
+    {
+      "id": "blue_3",
+      "story": "2:29 PM — The Attacker Reveals the Objective\n\nYou receive a WhatsApp message from someone claiming to be helping you recover the account. They say: “Your account has been compromised. I can secure it for you. Send me the login code you just received so I can cancel the attack.”\n\nAt the same time, you can still see unfamiliar activity on the business account. You now have to decide what the attacker is most likely trying to accomplish.",
+      "question": "Which preventive measure best stops this stage of the attack — the request for the authentication code — from succeeding?",
+      "options": [
+        "Multi-factor authentication combined with a strict policy of never sharing login/authentication codes with anyone, including people claiming to be support.",
+        "Sharing the code so the \"helper\" can secure the account more quickly.",
+        "Disabling two-factor authentication to simplify account recovery.",
+        "Assuming anyone who mentions a \"compromised account\" must be legitimate support staff."
+      ],
+      "correct_answer": 0,
+      "feedback": "MFA raises the bar for takeover, but that protection only holds if staff are trained never to disclose codes — the final barrier in this attack is a human decision, not a technical one.",
+      "points": 1
+    },
+    {
+      "id": "blue_4",
+      "story": "2:40 PM — Reviewing the Gaps\n\nThe account showed an unfamiliar login, unexpected security changes, unauthorized messages to customers, and now a follow-up attempt to extract an authentication code.\n\nThe business wants to know what should have been in place beforehand, and what would catch this pattern faster if it happens again.",
+      "question": "Which combination of controls would best prevent and detect this type of account takeover going forward?",
+      "options": [
+        "MFA on all business social accounts, staff training on never sharing authentication codes, active login/activity alerting, and a documented account-recovery process that uses only official platform channels.",
+        "Sharing account passwords among all staff for convenience.",
+        "Removing MFA because it slows down posting.",
+        "Relying on unofficial \"recovery helpers\" who reach out through social media or messaging apps."
+      ],
+      "correct_answer": 0,
+      "feedback": "This combination prevents unauthorized access (MFA, no code-sharing), detects it quickly if it happens anyway (alerting), and ensures recovery goes through legitimate channels rather than exposing the account to further attack.",
+      "points": 1
+    },
+    {
+      "id": "forensics_1",
+      "story": "At 2:16 PM, the business receives a security notification showing a login from an unfamiliar device. Shortly afterward, the account's recovery information is changed.",
+      "question": "Which information should be preserved to help investigate the suspected account takeover?",
+      "options": [
+        "Only the business owner's username",
+        "The login notification, timestamp, device and location information where available, and the security changes made to the account",
+        "Only the new recovery information",
+        "Only a screenshot of the business profile"
+      ],
+      "correct_answer": 1,
+      "feedback": "Login records, timestamps, device or location information, and account-security changes can help establish what happened and when.",
+      "points": 1
+    },
+    {
+      "id": "forensics_2",
+      "story": "At 2:23 PM, a customer sends the business a screenshot showing that the business account sent them a suspicious message containing a link.",
+      "question": "How can the customer's screenshot contribute to the investigation?",
+      "options": [
+        "It proves exactly who controlled the account",
+        "It can corroborate the message received and its timing, especially if the original message later becomes unavailable",
+        "It proves that the customer clicked the suspicious link",
+        "It replaces the need to preserve the account's activity records"
+      ],
+      "correct_answer": 1,
+      "feedback": "A customer-provided screenshot can provide useful corroborating evidence about what message was received and when, but it does not by itself establish who controlled the account.",
+      "points": 1
+    },
+    {
+      "id": "forensics_3",
+      "story": "At 2:29 PM, a person contacting the business through WhatsApp claims to be helping recover the account and asks the owner to provide the login or authentication code that was just received.",
+      "question": "What evidence should be documented and preserved at this stage?",
+      "options": [
+        "Only the person's WhatsApp profile picture",
+        "The conversation, sender information, timestamps, authentication-code request, login alerts, and relevant account activity",
+        "The authentication code itself should be sent to the person for verification",
+        "Only the owner's description of the conversation"
+      ],
+      "correct_answer": 1,
+      "feedback": "Preserving the conversation and correlating it with authentication and account-activity records can help establish the sequence of the suspected social-engineering and takeover activity. The authentication code should never be shared.",
+      "points": 1
+    },
+    {
+      "id": "forensics_4",
+      "story": "At 2:40 PM, the business owner believes that the person who contacted them on WhatsApp is the attacker responsible for the account takeover.",
+      "question": "What is the most defensible forensic conclusion?",
+      "options": [
+        "The WhatsApp sender is definitely the attacker",
+        "The evidence proves that the sender personally controlled the compromised account",
+        "The evidence supports a suspected account takeover and related social engineering, but additional evidence is needed to establish attribution"
+      ],
+      "correct_answer": 2,
+      "feedback": "Forensic findings should distinguish evidence of the incident from attribution. The available evidence may support a suspected takeover and social-engineering activity without proving who was responsible.",
+      "points": 1
+    }
+  ]
+}

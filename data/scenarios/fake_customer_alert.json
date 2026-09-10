@@ -1,0 +1,160 @@
+{
+  "id": "fake_customer_payment",
+  "title": "Fake Customer Payment / Account Credential Theft",
+  "attacker_objective": "Use a fake customer/payment interaction to persuade the business owner to visit a fraudulent payment page and expose business account credentials, creating an opportunity for account compromise.",
+  "questions": [
+    {
+      "id": "attack_1",
+      "story": "10:18 AM — A New Customer\n\nYou are running your small online business and receive a message from a customer you have never dealt with before.\n\n“Hi, I have just made payment for the items. Please confirm it so you can start preparing my order. I’m in a hurry, so please use the payment confirmation link I sent.”\n\nThere is a link in the message. You check your usual payment account, but you cannot see a payment yet.",
+      "question": "What would you do next?",
+      "options": [
+        "Open the link because the customer says the payment has already been made.",
+        "Ask the customer to send their account password so you can verify them.",
+        "Check the payment independently through the business's normal bank/mobile-money/payment platform before taking any action.",
+        "Send the link to another customer and ask whether it looks legitimate."
+      ],
+      "correct_answer": 2,
+      "feedback": "The safest choice is to verify the payment independently through the trusted payment platform. The customer's link should not become the source of truth for whether money was received.",
+      "points": 1
+    },
+    {
+      "id": "attack_2",
+      "story": "10:24 AM — The Customer Becomes Persistent\n\nYou have not opened the link.\n\nThe customer says the payment is already processing and that the confirmation page needs your business email login before the payment can be released. You notice that the website address does not match the normal payment service your business uses.",
+      "question": "What is the strongest warning sign at this point?",
+      "options": [
+        "The customer is ordering several products.",
+        "The customer is asking for a business email password through an unfamiliar payment page.",
+        "The customer says the order is urgent.",
+        "The customer sent the message through social media."
+      ],
+      "correct_answer": 1,
+      "feedback": "The strongest indicator is the request for a business email password through an unfamiliar payment page. The payment story is being used as a path to obtain credentials.",
+      "points": 1
+    },
+    {
+      "id": "attack_3",
+      "story": "10:31 AM — The Attack Develops\n\nYou did not provide the password. The customer continues insisting that you log in through the link. At almost the same time, you receive a security notification saying someone has attempted to access one of your business accounts from an unfamiliar device.\n\nYou now have an unexpected payment claim, a suspicious payment link requesting business credentials, and an unfamiliar account-access attempt.",
+      "question": "What is most likely happening?",
+      "options": [
+        "The payment system is performing a normal update.",
+        "The customer is helping you complete the payment.",
+        "The payment interaction is likely being used as a phishing attempt, with the attacker trying to obtain access to a business account.",
+        "The customer's phone has probably lost internet connection."
+      ],
+      "correct_answer": 2,
+      "feedback": "The sequence points to a credential-phishing and account-compromise attempt. The attacker is using a believable payment situation to create an opportunity to obtain access.",
+      "points": 1
+    },
+    {
+      "id": "blue_1",
+      "story": "10:18 AM — A New Customer\n\nYou are running your small online business and receive a message from a customer you have never dealt with before.\n\n“Hi, I have just made payment for the items. Please confirm it so you can start preparing my order. I’m in a hurry, so please use the payment confirmation link I sent.”\n\nThere is a link in the message. You check your usual payment account, but you cannot see a payment yet.",
+      "question": "Which preventive control would most effectively reduce the risk of this situation escalating?",
+      "options": [
+        "Relying on the customer to prove they are trustworthy.",
+        "A written policy requiring payment confirmation only through the business's own trusted payment platform, regardless of links sent by customers.",
+        "Asking staff to judge each message on a case-by-case basis with no set procedure.",
+        "Waiting until the customer sends the money to decide the next step."
+      ],
+      "correct_answer": 1,
+      "feedback": "A verification policy removes the decision from an individual's judgment during pressure and closes off the payment-link entry point before it can be used to harvest credentials.",
+      "points": 1
+    },
+    {
+      "id": "blue_2",
+      "story": "10:24 AM — The Customer Becomes Persistent\n\nYou have not opened the link.\n\nA few minutes later, the customer sends another message: “The payment is already processing. The confirmation page just needs your business email login before the payment can be released. Please do it now because I need the order urgently.”\n\nYou open the message again and notice that the website address does not match the normal payment service your business uses. Something about the situation feels wrong.",
+      "question": "What detection mechanism would most help flag this stage as suspicious in real time, before credentials are entered?",
+      "options": [
+        "A spam filter tuned only for social media promotions.",
+        "A browser or DNS-based warning that flags mismatched or newly registered domains before employees can enter credentials on them.",
+        "A monthly review of customer service chat volume.",
+        "A rule that automatically blocks messages from all new customers."
+      ],
+      "correct_answer": 1,
+      "feedback": "A domain-reputation or link-scanning control at this point can catch the mismatch between the \"payment\" page and the business's real payment service before credentials are typed in — something a pressured employee might miss.",
+      "points": 1
+    },
+    {
+      "id": "blue_3",
+      "story": "10:31 AM — The Attack Develops\n\nYou did not provide the password. The customer continues sending messages and insists that the payment cannot be completed unless you log in through the link.\n\nAt almost the same time, you receive a security notification saying that someone has attempted to access one of your business accounts from an unfamiliar device.\n\nYou now have three pieces of information: an unexpected payment claim; a suspicious payment link requesting business credentials; and an unfamiliar account-access attempt.",
+      "question": "Which detection capability made it possible to notice the account-access attempt at all, alongside the ongoing payment scam?",
+      "options": [
+        "Manual password changes performed without any alerting.",
+        "Login/account-access alerting that notifies the account owner of sign-in attempts from unrecognized devices.",
+        "Turning off security notifications to reduce alert fatigue.",
+        "Relying on customers to report unusual account behavior."
+      ],
+      "correct_answer": 1,
+      "feedback": "Real-time login-alert monitoring is what surfaced the unauthorized access attempt. Without it, the credential-phishing attempt could have gone unnoticed until well after a compromise.",
+      "points": 1
+    },
+    {
+      "id": "blue_4",
+      "story": "10:38 AM — Reviewing the Gaps\n\nThe business owner did not open the link and did not hand over the password, so no confirmed compromise has occurred.\n\nHowever, the unfamiliar-device access attempt shows the attacker was already trying a second path into the business accounts while the payment story was still running.\n\nThe owner now wants to know what should be put in place so that a similar attempt is stopped earlier next time, and caught immediately if it isn't.",
+      "question": "Which combination of controls would best prevent and detect this type of attack going forward?",
+      "options": [
+        "Multi-factor authentication on business accounts, staff training on verifying payment claims independently, and continuous monitoring/alerting for unfamiliar login attempts.",
+        "Publishing the business's payment account details publicly so customers can verify them directly.",
+        "Disabling login alerts so staff are not alarmed by routine activity.",
+        "Trusting any message that combines a link with a sense of urgency."
+      ],
+      "correct_answer": 0,
+      "feedback": "Layering MFA (limits the value of stolen credentials), staff verification habits (prevents falling for the pretext), and login-attempt monitoring (detects follow-on compromise attempts) addresses the attack at multiple stages instead of relying on a single control.",
+      "points": 1
+    },
+    {
+      "id": "forensics_1",
+      "story": "At 10:18 AM, the employee receives a message from a new customer claiming that a payment has been made. The message contains a link and payment-related information.",
+      "question": "Which information would be most useful to preserve as evidence?",
+      "options": [
+        "Only the customer's name",
+        "The message content, sender information, suspicious link, timestamp, and related payment records",
+        "Only a screenshot of the employee's desktop",
+        "Only the amount the customer claims to have paid"
+      ],
+      "correct_answer": 1,
+      "feedback": "Preserving the message, sender details, link, timing, and related payment records helps establish what happened and supports later analysis.",
+      "points": 1
+    },
+    {
+      "id": "forensics_2",
+      "story": "At 10:24 AM, the customer insists that the employee confirm the payment through a link that requests the business email password. The employee wants to forward the message to another employee and then delete the original.",
+      "question": "Why should the original message be preserved before taking further action?",
+      "options": [
+        "The message is needed only to identify the customer's name",
+        "A forwarded copy may not preserve all original context, and deleting the original may remove useful evidence",
+        "Deleting the message immediately proves that the attack occurred",
+        "Forwarding the message automatically preserves all forensic information"
+      ],
+      "correct_answer": 1,
+      "feedback": "The original message may contain important contextual and technical information that could be lost through forwarding or deletion.",
+      "points": 1
+    },
+    {
+      "id": "forensics_3",
+      "story": "At 10:31 AM, the business records show the suspicious link was received at 10:18 AM, the credential request occurred at 10:24 AM, an unfamiliar login appeared at 10:29 AM, and an attempted account access was recorded at 10:31 AM.",
+      "question": "What is the most appropriate forensic interpretation of this timeline?",
+      "options": [
+        "The timeline proves exactly who carried out the attack",
+        "The timing creates a potentially relevant relationship between the events, but more evidence is needed to identify who performed the activity",
+        "The unfamiliar login proves the customer was the attacker",
+        "The events are unrelated because they occurred at different times"
+      ],
+      "correct_answer": 1,
+      "feedback": "A timeline can show that events are potentially related, but timing alone is not enough to establish the identity of the person responsible.",
+      "points": 1
+    },
+    {
+      "id": "forensics_4",
+      "story": "At 10:45 AM, the investigation confirms that there was no matching payment, the message contained a suspicious link, and an unfamiliar login attempt occurred. However, there is no evidence identifying the person behind the activity or proving that the account was successfully accessed.",
+      "question": "What is the most defensible conclusion to include in the forensic report?",
+      "options": [
+        "The customer definitely hacked the business account",
+        "The attacker successfully stole the business credentials",
+        "The evidence indicates suspected phishing followed by an unfamiliar access attempt, but it does not establish the attacker's identity or successful account compromise"
+      ],
+      "correct_answer": 2,
+      "feedback": "A forensic conclusion should distinguish what the available evidence supports from what cannot yet be established.",
+      "points": 1
+    }
+  ]
+}
