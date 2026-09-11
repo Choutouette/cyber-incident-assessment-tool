@@ -1,0 +1,62 @@
+{
+  "owner": "Carol Selikem Nyanyui Tay",
+  "team": "Digital Forensics",
+  "area": "Evidence Identification and Preservation",
+  "questions": [
+    {
+      "id": 1,
+      "story": "At 10:18 AM, the employee receives a message from a new customer claiming that a payment has been made. The message contains a link and payment-related information.",
+      "question": "Which information would be most useful to preserve as evidence?",
+      "options": [
+        "Only the customer's name",
+        "The message content, sender information, suspicious link, timestamp, and related payment records",
+        "Only a screenshot of the employee's desktop",
+        "Only the amount the customer claims to have paid"
+      ],
+      "correct_answer": 1,
+      "feedback": "Preserving the message, sender details, link, timing, and related payment records helps establish what happened and supports later analysis.",
+      "points": 1
+    },
+    {
+      "id": 2,
+      "story": "At 10:24 AM, the customer insists that the employee confirm the payment through a link that requests the business email password. The employee wants to forward the message to another employee and then delete the original.",
+      "question": "Why should the original message be preserved before taking further action?",
+      "options": [
+        "The message is needed only to identify the customer's name",
+        "A forwarded copy may not preserve all original context, and deleting the original may remove useful evidence",
+        "Deleting the message immediately proves that the attack occurred",
+        "Forwarding the message automatically preserves all forensic information"
+      ],
+      "correct_answer": 1,
+      "feedback": "The original message may contain important contextual and technical information that could be lost through forwarding or deletion.",
+      "points": 1
+    },
+    {
+      "id": 3,
+      "story": "At 10:31 AM, the business records show the suspicious link was received at 10:18 AM, the credential request occurred at 10:24 AM, an unfamiliar login appeared at 10:29 AM, and an attempted account access was recorded at 10:31 AM.",
+      "question": "What is the most appropriate forensic interpretation of this timeline?",
+      "options": [
+        "The timeline proves exactly who carried out the attack",
+        "The timing creates a potentially relevant relationship between the events, but more evidence is needed to identify who performed the activity",
+        "The unfamiliar login proves the customer was the attacker",
+        "The events are unrelated because they occurred at different times"
+      ],
+      "correct_answer": 1,
+      "feedback": "A timeline can show that events are potentially related, but timing alone is not enough to establish the identity of the person responsible.",
+      "points": 1
+    },
+    {
+      "id": 4,
+      "story": "At 10:45 AM, the investigation confirms that there was no matching payment, the message contained a suspicious link, and an unfamiliar login attempt occurred. However, there is no evidence identifying the person behind the activity or proving that the account was successfully accessed.",
+      "question": "What is the most defensible conclusion to include in the forensic report?",
+      "options": [
+        "The customer definitely hacked the business account",
+        "The attacker successfully stole the business credentials",
+        "The evidence indicates suspected phishing followed by an unfamiliar access attempt, but it does not establish the attacker's identity or successful account compromise"
+      ],
+      "correct_answer": 2,
+      "feedback": "A forensic conclusion should distinguish what the available evidence supports from what cannot yet be established.",
+      "points": 1
+    }
+  ]
+}

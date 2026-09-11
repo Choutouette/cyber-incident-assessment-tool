@@ -1,0 +1,161 @@
+{
+  "id": "malicious_invoice",
+  "title": "Malicious Invoice / Document Attachment",
+  "attacker_objective": "Impersonate a regular supplier or shipping partner and use an unexpected invoice attachment plus urgency to persuade an employee to open a potentially malicious file, creating an opportunity for unauthorized access.",
+  "questions": [
+    {
+      "id": "attack_1",
+      "story": "8:43 AM — The Invoice Arrives\n\nYou are handling business emails when a message arrives from someone who appears to be your regular shipping partner.\n\nSubject: “OVERDUE INVOICE — FINAL WARNING”\n\nThe message says the invoice must be reviewed immediately. Normally, this supplier sends invoices as PDF files. This time, the attachment is Invoice_Details.zip.",
+      "question": "What would you do before opening it?",
+      "options": [
+        "Open it immediately because the message says it is a final warning.",
+        "Verify the message and attachment with the supplier using an established, trusted contact method.",
+        "Forward the attachment to a customer and ask them to open it.",
+        "Disable your device's security controls so the file can open."
+      ],
+      "correct_answer": 1,
+      "feedback": "Verification through an established supplier contact is the safer choice. The unexpected ZIP file and urgent wording are important warning signs.",
+      "points": 1
+    },
+    {
+      "id": "attack_2",
+      "story": "8:51 AM — Something Doesn't Match\n\nYou contact the supplier using the phone number already stored in your business records. The supplier says: “We did not send that email. Our invoices are still being sent as PDFs.”\n\nYou return to the email. The sender name looks familiar, but the actual email address is slightly different from the supplier's normal address. The message is also pressuring you to open the attachment immediately.",
+      "question": "What does this combination suggest?",
+      "options": [
+        "The supplier has changed its normal email process without telling you.",
+        "The attachment is likely part of a simulated malicious-file delivery attempt using supplier impersonation and urgency.",
+        "The ZIP file is safe because it is smaller than a PDF.",
+        "The message is probably just a normal reminder."
+      ],
+      "correct_answer": 1,
+      "feedback": "The combination of supplier impersonation, an unexpected file type and urgency strongly suggests a malicious attachment/social-engineering attempt.",
+      "points": 1
+    },
+    {
+      "id": "attack_3",
+      "story": "9:07 AM — The Employee Has Already Opened It\n\nAnother employee saw the email before it was verified and opened the attachment. A few minutes later, their device displays an unusual security warning and begins behaving differently from normal.\n\nThe employee says: “I only opened the invoice. I didn't download anything else.”",
+      "question": "What is the most likely objective?",
+      "options": [
+        "To improve the formatting of the supplier's invoice.",
+        "To create an opportunity for unauthorized access to the employee's device or business environment.",
+        "To update the supplier's delivery address.",
+        "To confirm that the business received its normal invoice."
+      ],
+      "correct_answer": 1,
+      "feedback": "The simulated attachment is the attacker's delivery mechanism. The objective is unauthorized access rather than ordinary invoice processing.",
+      "points": 1
+    },
+    {
+      "id": "blue_1",
+      "story": "8:43 AM — The Invoice Arrives\n\nYou are handling business emails when a message arrives from someone who appears to be your regular shipping partner.\n\nSubject: “OVERDUE INVOICE — FINAL WARNING”\n\nThe message says the invoice must be reviewed immediately to avoid disruption to your business. Normally, this supplier sends invoices as PDF files. This time, the attachment is: Invoice_Details.zip",
+      "question": "Which preventive control at the email gateway would most reduce risk before the employee ever has to decide whether to open the file?",
+      "options": [
+        "Automatically routing all invoices straight to the finance folder without inspection.",
+        "Email filtering/attachment sandboxing that flags or blocks unexpected archive file types and checks for sender-domain mismatches before delivery.",
+        "Turning off spam filters so no legitimate emails are missed.",
+        "Asking the employee to open the file in a separate browser tab."
+      ],
+      "correct_answer": 1,
+      "feedback": "A gateway-level control that inspects attachment types and sender authenticity (e.g., domain similarity, authentication checks) can intercept a suspicious ZIP file before it ever reaches an inbox.",
+      "points": 1
+    },
+    {
+      "id": "blue_2",
+      "story": "8:51 AM — Something Doesn't Match\n\nYou contact the supplier using the phone number already stored in your business records. The supplier says: “We did not send that email. Our invoices are still being sent as PDFs.”\n\nYou return to the email. The sender name looks familiar, but the actual email address is slightly different from the supplier's normal address. You also notice that the message is pressuring you to open the attachment immediately.",
+      "question": "What detection practice institutionalizes this kind of check instead of relying on one employee happening to notice the mismatch?",
+      "options": [
+        "A policy of independently verifying unexpected or urgent attachments/invoices through a known contact method (a phone number already on file, not one from the email itself).",
+        "Trusting the display name shown in the inbox.",
+        "Assuming any message labeled \"final warning\" must be legitimate.",
+        "Discontinuing all email communication with suppliers."
+      ],
+      "correct_answer": 0,
+      "feedback": "An out-of-band verification step turns a one-off observation into a repeatable control that reliably detects impersonation, regardless of how convincing the email itself looks.",
+      "points": 1
+    },
+    {
+      "id": "blue_3",
+      "story": "9:07 AM — The Employee Has Already Opened It\n\nYou discover that another employee saw the email before it was verified. They opened the attachment. A few minutes later, their device displays an unusual security warning and begins behaving differently from normal.\n\nThe employee says: “I only opened the invoice. I didn't download anything else.”\n\nYou now need to understand what the attacker was trying to achieve.",
+      "question": "Which detection tool made it possible to notice the unusual device activity quickly, right after the attachment was opened?",
+      "options": [
+        "Endpoint detection and response (EDR) or antivirus software generating a real-time security alert on the device.",
+        "Waiting for the employee to mention the device felt \"slow.\"",
+        "An annual IT audit.",
+        "Disabling security software to improve device performance."
+      ],
+      "correct_answer": 0,
+      "feedback": "Endpoint monitoring is what generated the unusual security warning. Without an EDR/antivirus solution watching device behavior, the compromise could persist unnoticed for much longer.",
+      "points": 1
+    },
+    {
+      "id": "blue_4",
+      "story": "9:15 AM — Reviewing the Gaps\n\nThe supplier has confirmed it never sent the email, the sender address did not match, and the employee's device is now showing signs of compromise after the attachment was opened.\n\nThe business wants to understand what should have stopped this earlier, and what should catch it faster if it happens again.",
+      "question": "Which set of controls would best prevent and detect this type of attack going forward?",
+      "options": [
+        "Blocking or sandboxing risky attachment types by default, mandatory out-of-band verification for unexpected invoices, and endpoint monitoring with alerts for anomalous post-open activity.",
+        "Allowing all ZIP attachments on the reasoning that PDFs can also be malicious.",
+        "Removing antivirus software to speed up email delivery.",
+        "Relying only on the supplier to prevent impersonation of its own brand."
+      ],
+      "correct_answer": 0,
+      "feedback": "Combining email-layer prevention, a verification habit that catches impersonation, and endpoint-layer detection covers the attack at the delivery, decision, and execution stages rather than a single point of failure.",
+      "points": 1
+    },
+    {
+      "id": "forensics_1",
+      "story": "At 8:43 AM, an email appears to come from a regular supplier. The subject reads \"OVERDUE INVOICE — FINAL WARNING\" and it contains an attachment named Invoice_Details.zip.",
+      "question": "Which email artefacts should be preserved for forensic examination?",
+      "options": [
+        "Only the supplier's name",
+        "The original email, sender address, email headers where available, timestamp, subject, and attachment",
+        "Only the attachment filename",
+        "Only a screenshot of the email"
+      ],
+      "correct_answer": 1,
+      "feedback": "The original email and its associated metadata and attachment can help establish the source, timing, content, and nature of the suspected incident.",
+      "points": 1
+    },
+    {
+      "id": "forensics_2",
+      "story": "At 8:51 AM, the supplier says they did not send the email. The employee also notices that the sender's address is slightly different from the supplier's normal address.",
+      "question": "Which combination of evidence would be most useful for investigating the discrepancy?",
+      "options": [
+        "Only the employee's memory of receiving the email",
+        "Only the supplier's company name",
+        "The sender address, email headers, timestamp, attachment name and type, and the supplier's verification",
+        "Only the ZIP file"
+      ],
+      "correct_answer": 2,
+      "feedback": "Correlating the sender information, technical email details, attachment information, timing, and trusted supplier verification provides a stronger basis for determining whether the message was impersonated.",
+      "points": 1
+    },
+    {
+      "id": "forensics_3",
+      "story": "At 9:07 AM, an employee admits that they opened the ZIP attachment. A security warning appeared, and the employee wants to restart the computer to see if the problem goes away.",
+      "question": "What should happen before unnecessary changes are made to the computer?",
+      "options": [
+        "Document the incident and preserve relevant evidence before making unnecessary changes",
+        "Restart the computer several times to test whether the warning disappears",
+        "Delete the attachment and empty the recycle bin",
+        "Continue opening the attachment to determine what it does"
+      ],
+      "correct_answer": 0,
+      "feedback": "Unnecessary changes to the device can alter or destroy potentially useful evidence. The incident should be documented and relevant evidence preserved before further activity.",
+      "points": 1
+    },
+    {
+      "id": "forensics_4",
+      "story": "At 9:22 AM, the investigation records the email arriving at 8:43 AM, the supplier denying that they sent it at 8:51 AM, and the employee opening the attachment at 9:07 AM. A security warning appeared immediately afterward.",
+      "question": "What is the most appropriate forensic interpretation of these events?",
+      "options": [
+        "The supplier definitely carried out the attack",
+        "The sequence is consistent with a possible malicious-file incident, so the email, attachment, and affected device should be investigated together",
+        "The security warning proves that the attacker successfully gained access",
+        "The email can be ignored because the employee did not report a confirmed compromise"
+      ],
+      "correct_answer": 1,
+      "feedback": "Correlating the timeline across the email, attachment, and device provides a stronger basis for investigation, but the available evidence does not by itself prove successful compromise or identify the attacker.",
+      "points": 1
+    }
+  ]
+}
