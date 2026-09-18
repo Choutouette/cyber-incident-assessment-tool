@@ -1,0 +1,69 @@
+{
+  "owner": "Clifford",
+  "team": "Blue Team",
+  "area": "Incident Response",
+  "scenarios": [
+    {
+      "id": "malicious_invoice",
+      "title": "Malicious Invoice / Attachment (.zip File)",
+      "questions": [
+        {
+          "id": "response_1",
+          "story": "9:25 AM — An employee opened an unexpected .zip file from a shipping contact, and the computer displayed a strange security warning.",
+          "question": "What is the first thing you must do to contain the potentially compromised device?",
+          "options": [
+            "Restart the computer to see if the warning goes away.",
+            "Immediately disconnect the device from Wi-Fi/Ethernet to stop potential malware from spreading or communicating externally.",
+            "Email the supplier back asking if the file was safe.",
+            "Copy all business files onto an unformatted USB flash drive."
+          ],
+          "correct_answer": 1,
+          "points": 1,
+          "feedback": "Disconnecting the device limits potential communication with an attacker and reduces the opportunity for the incident to spread to other systems."
+        },
+        {
+          "id": "response_2",
+          "story": "9:35 AM — The device is isolated from the internet. You need to handle internal and external communication.",
+          "question": "How should you escalate this incident?",
+          "options": [
+            "Inform relevant staff not to open emails from that supplier and report the suspicious email/header/domain to your IT support or email provider.",
+            "Hide the incident from the rest of the team to avoid panic.",
+            "Call the supplier and demand they pay for a new laptop.",
+            "Reply to the suspicious email warning the attacker that you called the police."
+          ],
+          "correct_answer": 0,
+          "points": 1,
+          "feedback": "Internal notification helps prevent other employees from opening the same attachment, while reporting the suspicious email can help the organization identify and block similar messages."
+        },
+        {
+          "id": "response_3",
+          "story": "10:00 AM — The infected device has been disconnected and analyzed.",
+          "question": "What is the proper recovery step before bringing the device back online?",
+          "options": [
+            "Reconnect to Wi-Fi immediately if no further pop-ups appear.",
+            "Run a full antivirus scan, remove flagged malicious files, and verify system integrity or restore from a clean backup.",
+            "Delete the .zip file from the Downloads folder and resume work.",
+            "Format the entire office router."
+          ],
+          "correct_answer": 1,
+          "points": 1,
+          "feedback": "Removing the downloaded file alone does not establish that the device is clean. The system should be checked and, where necessary, restored from a known-clean state before reconnection."
+        },
+        {
+          "id": "response_4",
+          "story": "10:20 AM — The device has been scanned and restored using the appropriate recovery process.",
+          "question": "What should you verify before returning the device to normal business use?",
+          "options": [
+            "Reconnect it immediately because the suspicious file has been removed.",
+            "Confirm that security controls are functioning, review relevant account activity, and document the incident and recovery actions.",
+            "Delete the incident records to prevent unnecessary concern.",
+            "Give the recovered device to another employee without informing them."
+          ],
+          "correct_answer": 1,
+          "points": 1,
+          "feedback": "Verification helps confirm that the device is properly secured before normal use resumes, while documentation preserves the incident record and recovery actions."
+        }
+      ]
+    }
+  ]
+}
