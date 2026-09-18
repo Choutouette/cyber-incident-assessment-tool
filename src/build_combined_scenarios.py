@@ -8,18 +8,21 @@ SCENARIOS = {
         "output": "fake_customer_alert.json",
         "attack_file": "fake_customer_alert/attack.json",
         "prevention_file": "fake_customer_alert/prevention.json",
+        "response_file": "fake_customer_alert/response.json",
         "forensics_file": "fake_customer_alert/forensics.json",
     },
     "malicious_invoice": {
         "output": "malicious_invoice.json",
         "attack_file": "malicious_invoice/attack.json",
         "prevention_file": "malicious_invoice/prevention.json",
+        "response_file": "malicious_invoice/response.json",
         "forensics_file": "malicious_invoice/forensics.json",
     },
     "social_media_takeover": {
         "output": "social_media_takeover.json",
         "attack_file": "social_medi_takeover/attack.json",
         "prevention_file": "social_medi_takeover/prevention.json",
+        "response_file": "social_medi_takeover/response.json",
         "forensics_file": "social_medi_takeover/forensics.json",
     },
 }
@@ -62,6 +65,22 @@ def get_prevention_questions(data):
     return questions
 
 
+def get_response_questions(data):
+    scenarios = data.get("scenarios", [])
+
+    if not scenarios:
+        raise ValueError("Response file contains no scenarios.")
+
+    questions = scenarios[0].get("questions", [])
+
+    if len(questions) != 4:
+        raise ValueError(
+            f"Expected 4 response questions, found {len(questions)}."
+        )
+
+    return questions
+
+
 def get_forensic_questions(data):
     questions = data.get("questions", [])
 
@@ -88,21 +107,24 @@ def clean_question(question, stage_prefix):
 def build_scenario(config):
     attack_data = load_json(BASE_DIR / config["attack_file"])
     prevention_data = load_json(BASE_DIR / config["prevention_file"])
+    response_data = load_json(BASE_DIR / config["response_file"])
     forensic_data = load_json(BASE_DIR / config["forensics_file"])
 
     attack_questions = get_attack_questions(attack_data)
     prevention_questions = get_prevention_questions(prevention_data)
+    response_questions = get_response_questions(response_data)
     forensic_questions = get_forensic_questions(forensic_data)
 
     combined_questions = (
         [clean_question(q, "attack") for q in attack_questions]
         + [clean_question(q, "blue") for q in prevention_questions]
+        + [clean_question(q, "response") for q in response_questions]
         + [clean_question(q, "forensics") for q in forensic_questions]
     )
 
-    if len(combined_questions) != 11:
+    if len(combined_questions) != 15:
         raise ValueError(
-            f"Combined scenario should contain 11 questions, "
+            f"Combined scenario should contain 15 questions, "
             f"found {len(combined_questions)}."
         )
 

@@ -102,6 +102,62 @@
       "points": 1
     },
     {
+      "id": "response_response_1",
+      "story": "10:40 AM — You realize the payment link was fake and an unfamiliar device attempted to access your business account.",
+      "question": "What is your immediate containment action?",
+      "options": [
+        "Reply to the customer demanding an explanation.",
+        "Immediately change the business account password, log out all active sessions, and revoke unrecognized devices.",
+        "Delete the WhatsApp chat history to clear the suspicious links.",
+        "Wait 24 hours to see if the money eventually reflects in your wallet/bank."
+      ],
+      "correct_answer": 1,
+      "feedback": "Changing the credential immediately helps revoke active access and stops the attacker from taking further control of the account. Deleting chats can destroy evidence, while waiting could allow unauthorized access to continue.",
+      "points": 1
+    },
+    {
+      "id": "response_response_2",
+      "story": "10:45 AM — The attacker used a fake payment service URL that mimics a local processor.",
+      "question": "Who should you escalate or report this incident to first?",
+      "options": [
+        "Post a complaint on your personal Instagram story tagging the customer.",
+        "Contact your payment provider/bank customer support to flag the fraudulent URL and notify the appropriate official security or fraud-reporting channel.",
+        "Report the issue to the police station immediately before taking any technical action.",
+        "Do nothing, because you did not lose any actual cash yet."
+      ],
+      "correct_answer": 1,
+      "feedback": "Reporting the fraudulent URL to the relevant payment provider or fraud/security team can help address the fraudulent activity and protect other users.",
+      "points": 1
+    },
+    {
+      "id": "response_response_3",
+      "story": "11:15 AM — Active access attempts have stopped, and your account password has been updated.",
+      "question": "How do you safely resume business operations?",
+      "options": [
+        "Re-enable account access and turn on Two-Factor Authentication (2FA) via an authenticator app or SMS code.",
+        "Continue using the same password across all your other social media accounts.",
+        "Offer the customer a discount to complete the order legitimately.",
+        "Turn off phone notifications to avoid further stress."
+      ],
+      "correct_answer": 0,
+      "feedback": "Enabling 2FA adds an additional authentication factor and reduces the risk of unauthorized access if a password is compromised.",
+      "points": 1
+    },
+    {
+      "id": "response_response_4",
+      "story": "11:30 AM — The account has been secured and 2FA has been enabled.",
+      "question": "What should you do before considering the incident closed?",
+      "options": [
+        "Delete the suspicious messages and assume the problem is resolved.",
+        "Review recent account activity, confirm that unfamiliar devices and sessions have been removed, and document the incident and actions taken.",
+        "Disable account security notifications.",
+        "Share the new password with all employees so they can monitor the account."
+      ],
+      "correct_answer": 1,
+      "feedback": "Reviewing recent activity helps confirm that unauthorized access has been removed, while documenting the incident preserves a record of what happened and the actions taken.",
+      "points": 1
+    },
+    {
       "id": "forensics_1",
       "story": "At 10:18 AM, the employee receives a message from a new customer claiming that a payment has been made. The message contains a link and payment-related information.",
       "question": "Which information would be most useful to preserve as evidence?",
